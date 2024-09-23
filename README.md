@@ -21,20 +21,20 @@ BASc, Biomedical Engineering | The University of British Columbia (_April 2026_)
 - Provided vital assistance to over **30** visitors every shift by offering clear information and precise directions, ensuring easy access to essential services.
 
 ## Projects 
-### Battery Management System 
+### [Battery Management System](/projects/BMS.md)
 Description
 test
 Image
-### Biomedical Training Device 
+### [Biomedical Training Device](/projects/TrainingDevice.md)
 Description
 Image
-### Infant Sepsis Monitor	 
+### [Infant Sepsis Monitor](/projects/SepsisMonitor.md)	 
 Description
 Image
-### Breast Invasive Carcinoma Research
+### [Breast Invasive Carcinoma Research](/projects/BRCAproj)
 Description
 Image
-### Distal Femur Fracture Fixation Device 
+### [Distal Femur Fracture Fixation Device](/projects/FemurFixationproj.md)
 Description
 Image
 
