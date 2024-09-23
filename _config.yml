@@ -1,8 +1,8 @@
 # Site settings
 title: "Nicholas' Portfolio"  # The title of your website
 description: "Biomedical Engineering Student | Medical Devices & Bionic Prosthesis Enthusiast"  # A short description of yourself
-url: "https://your-github-username.github.io/your-repo-name"  # The URL of your site
-baseurl: ""  # Leave empty if using the root domain, otherwise provide a path
+url: "https://fettuccinifelix.github.io"  # The URL of your site
+
 
 # Your personal information
 name: "Nicholas"  # Your name
@@ -15,4 +15,4 @@ github_username: Fettuccinifelix  # Link to your GitHub profile
 #linkedin_username: your_linkedin_username  # Optional, remove if not applicable
 
 # Theme settings (if using a Jekyll theme)
-theme: "minimal"  # The theme you're using (adjust if you're using a specific one)
+theme: jekyll-theme-minimal  # The theme you're using (adjust if you're using a specific one)
