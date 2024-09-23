@@ -12,8 +12,8 @@ bio: "Biomedical engineering student at UBC, specializing in signals and systems
 
 # Social media links
 # twitter_username: your_twitter_handle  # Optional, remove if not applicable
-github_username: Fettuccinifelix  # Link to your GitHub profile
-linkedin_username: nicholas-c-santoso  # Optional, remove if not applicable
+# github_username: Fettuccinifelix  # Link to your GitHub profile
+# linkedin_username: nicholas-c-santoso  # Optional, remove if not applicable
 
 # Theme settings (if using a Jekyll theme)
 theme: jekyll-theme-minimal  # The theme you're using (adjust if you're using a specific one)
