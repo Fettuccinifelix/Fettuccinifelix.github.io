@@ -1,5 +1,6 @@
 # Site settings
-title: "Nicholas' Portfolio"  # The title of your website
+site.locale: "en-US"
+title: "Nick's Corner"  # The title of your website
 description: "Biomedical Engineering Student | Medical Devices & Bionic Prosthesis Enthusiast"  # A short description of yourself
 url: "https://fettuccinifelix.github.io"  # The URL of your site
 
@@ -12,7 +13,7 @@ bio: "Biomedical engineering student at UBC, specializing in signals and systems
 # Social media links
 # twitter_username: your_twitter_handle  # Optional, remove if not applicable
 github_username: Fettuccinifelix  # Link to your GitHub profile
-#linkedin_username: your_linkedin_username  # Optional, remove if not applicable
+linkedin_username: nicholas-c-santoso  # Optional, remove if not applicable
 
 # Theme settings (if using a Jekyll theme)
 theme: jekyll-theme-minimal  # The theme you're using (adjust if you're using a specific one)
