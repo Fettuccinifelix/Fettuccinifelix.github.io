@@ -23,6 +23,7 @@ BASc, Biomedical Engineering | The University of British Columbia (_April 2026_)
 ## Projects 
 ### Battery Management System 
 Description
+test
 Image
 ### Biomedical Training Device 
 Description
