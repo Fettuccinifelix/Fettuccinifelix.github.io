@@ -1,1 +1,18 @@
-theme: jekyll-theme-merlot
+# Site settings
+title: "Nicholas' Portfolio"  # The title of your website
+description: "Biomedical Engineering Student | Medical Devices & Bionic Prosthesis Enthusiast"  # A short description of yourself
+url: "https://your-github-username.github.io/your-repo-name"  # The URL of your site
+baseurl: ""  # Leave empty if using the root domain, otherwise provide a path
+
+# Your personal information
+name: "Nicholas"  # Your name
+email: "your-email@example.com"  # Optional, your email for contact
+bio: "Biomedical engineering student at UBC, specializing in signals and systems with a passion for medical devices and bionic prosthesis."  # A short bio
+
+# Social media links
+twitter_username: your_twitter_handle  # Optional, remove if not applicable
+github_username: your_github_username  # Link to your GitHub profile
+linkedin_username: your_linkedin_username  # Optional, remove if not applicable
+
+# Theme settings (if using a Jekyll theme)
+theme: "minimal"  # The theme you're using (adjust if you're using a specific one)
