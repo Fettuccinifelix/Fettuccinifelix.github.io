@@ -6,7 +6,7 @@ baseurl: ""  # Leave empty if using the root domain, otherwise provide a path
 
 # Your personal information
 name: "Nicholas"  # Your name
-email: "your-email@example.com"  # Optional, your email for contact
+email: "santoso6@student.ubc.ca"  # Optional, your email for contact
 bio: "Biomedical engineering student at UBC, specializing in signals and systems with a passion for medical devices and bionic prosthesis."  # A short bio
 
 # Social media links
