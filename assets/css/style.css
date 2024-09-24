@@ -1,0 +1,17 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+/* Custom styles */
+section {
+  max-width: 800px; /* Adjust this value as needed */
+  margin: 0 auto;   /* Center the section */
+  padding: 20px;    /* Add some padding */
+}
+
+.wrapper {
+  max-width: 1200px; /* Adjust this value as needed for the entire wrapper */
+  margin: 0 auto;    /* Center the wrapper */
+  padding: 20px;     /* Optional padding for the wrapper */
+}
