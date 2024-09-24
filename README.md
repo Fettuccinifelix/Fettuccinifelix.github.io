@@ -27,8 +27,11 @@ A Battery Management System (BMS) for the UBC Bionics GRASP project to ensure th
 
 ### [Biomedical Training Device](/projects/TrainingDevice.md) (_January 2024 - April 2024_)
 A projection-based prototype training device for biomedical engineering technologists to simulate preventative maintenance on patient point-of-care units.
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/train_img/image26.png" alt="python window" style="height: 400px;">
+</div>
 
-![pythonwindows](/assets/img/train_img/image26.png)
+
 
 #### *Skills applied: circuit design, Python, OpenCV*
 
@@ -42,6 +45,11 @@ A wearable device for infants that monitors vital signs, detects early indicator
 
 ### [Femur Fracture Fixation Device](/projects/FemurFixationproj.md) (_September 2022 - December 2022_)
 A proposed fixation device for distal femur fractures in elderly patients, designed to support immediate post-surgery mobility.
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/femur_img/nicola/diag.png" alt="model" style="height: 400px;">
+    <img src="/assets/img/femur_img/nicola/diag with bone.png" alt="model with bone" style="height: 400px;">
+</div>
+
 #### *Skills applied: SolidWorks CAD, SolidWorks Simulation (FEA)* 
 
 ## Hobbies
