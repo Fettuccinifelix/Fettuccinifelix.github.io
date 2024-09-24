@@ -5,15 +5,5 @@ description: "Biomedical Engineering Student | Medical Devices & Bionic Prosthes
 url: "https://fettuccinifelix.github.io"  # The URL of your site
 logo: /assets/img/Nick Santoso (1).jpg
 
-# Your personal information
-name: "Nicholas"  # Your name
-email: "santoso6@student.ubc.ca"  # Optional, your email for contact
-bio: "Biomedical engineering student at UBC, specializing in signals and systems with a passion for medical devices and bionic prosthesis."  # A short bio
-
-# Social media links
-# twitter_username: your_twitter_handle  # Optional, remove if not applicable
-# github_username: Fettuccinifelix  # Link to your GitHub profile
-# linkedin_username: nicholas-c-santoso  # Optional, remove if not applicable
-
 # Theme settings (if using a Jekyll theme)
 theme: jekyll-theme-minimal  # The theme you're using (adjust if you're using a specific one)
