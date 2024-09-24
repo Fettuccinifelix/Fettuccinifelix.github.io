@@ -5,13 +5,13 @@
 
 /* Custom styles */
 section {
-  max-width: 900px; /* Adjust this value as needed */
+  max-width: 1100px; /* Adjust this value as needed */
   margin: 0 auto;   /* Center the section */
   padding: 20px;    /* Add some padding */
 }
 
 .wrapper {
-  max-width: 1300px; /* Adjust this value as needed for the entire wrapper */
+  max-width: 1500px; /* Adjust this value as needed for the entire wrapper */
   margin: 0 auto;    /* Center the wrapper */
   padding: 20px;     /* Optional padding for the wrapper */
 }
