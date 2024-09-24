@@ -12,40 +12,63 @@
     <![endif]-->
 
     
-    <style>
-      .wrapper {
-          justify-content: space-between; 
-          max-width: 2000px; 
-          padding: 20px;
-      }
+   <style>
+    .wrapper {
+        display: flex;
+        justify-content: space-between; 
+        max-width: 90vw; /* Max width as a percentage of the viewport width */
+        padding: 2vw; /* Padding relative to viewport width */
+        margin: 0 auto; /* Center the wrapper */
+    }
 
-      header {
-          max-width: 400px; 
-      }
+    header {
+        max-width: 25vw; /* Width as a percentage of the viewport width */
+        flex: 1; /* Allow the header to shrink/grow with the viewport */
+    }
 
-      section {
-          max-width: 1300px; 
-          margin-left: 100px;
-      }
+    section {
+        max-width: 60vw; /* Width as a percentage of the viewport width */
+        margin-left: 5vw; /* Margin relative to viewport width */
+        flex: 2; /* Section will take twice the space as the header */
+    }
 
-      img {
-          border-radius: 50%; 
-          max-width: 150px; 
-          height: auto; 
-          margin-bottom: 20px; 
-      }
+    img {
+        border-radius: 50%; 
+        max-width: 10vw; /* Size relative to the viewport width */
+        height: auto; 
+        margin-bottom: 2vw; /* Spacing relative to viewport width */
+    }
 
-      .contact-links img {
-          width: 30px; 
-          height: 30px; 
-          margin-right: 15px; 
-      }
+    .contact-links img {
+        width: 3vw; 
+        height: 3vw; 
+        margin-right: 1.5vw; 
+    }
 
-      footer {
-          text-align: center;
-          margin-top: 20px;
-      }
-    </style>
+    footer {
+        text-align: center;
+        margin-top: 2vw; 
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+        .wrapper {
+            flex-direction: column;
+            align-items: center;
+            max-width: 100vw;
+            padding: 10px; /* Fixed padding for small screens */
+        }
+
+        header, section {
+            max-width: 90vw;
+            margin-left: 0; /* Remove margin for better centering */
+        }
+
+        img, .contact-links img {
+            max-width: 20vw; /* Slightly larger images on small screens */
+        }
+    }
+</style>
 
 
 
