@@ -12,24 +12,27 @@
     <![endif]-->
 
     
-   <style>
+  <style>
     .wrapper {
         display: flex;
         justify-content: space-between; 
         max-width: 90vw; /* Max width as a percentage of the viewport width */
         padding: 2vw; /* Padding relative to viewport width */
         margin: 0 auto; /* Center the wrapper */
+        flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
     }
 
     header {
         max-width: 25vw; /* Width as a percentage of the viewport width */
         flex: 1; /* Allow the header to shrink/grow with the viewport */
+        box-sizing: border-box; /* Ensure padding/margin doesn’t affect width */
     }
 
     section {
         max-width: 60vw; /* Width as a percentage of the viewport width */
-        margin-left: 5vw; /* Margin relative to viewport width */
+        padding-left: 5vw; /* Replace margin with padding to avoid overlap */
         flex: 2; /* Section will take twice the space as the header */
+        box-sizing: border-box; /* Ensure padding doesn’t affect width */
     }
 
     img {
@@ -61,7 +64,7 @@
 
         header, section {
             max-width: 90vw;
-            margin-left: 0; /* Remove margin for better centering */
+            padding-left: 0; /* Remove padding for better centering */
         }
 
         img, .contact-links img {
