@@ -27,6 +27,9 @@ A Battery Management System (BMS) for the UBC Bionics GRASP project to ensure th
 
 ### [Biomedical Training Device](/projects/TrainingDevice.md) (_January 2024 - April 2024_)
 A projection-based prototype training device for biomedical engineering technologists to simulate preventative maintenance on patient point-of-care units.
+
+![pythonwindows](/assets/img/train_img/image26.png)
+
 #### *Skills applied: circuit design, Python, OpenCV*
 
 ### [Breast Invasive Carcinoma Research](/projects/BRCAproj) (_September 2023 - December 2023_)
