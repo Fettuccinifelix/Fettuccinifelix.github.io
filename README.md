@@ -21,23 +21,29 @@ BASc, Biomedical Engineering | The University of British Columbia (_April 2026_)
 - Provided vital assistance to over **30** visitors every shift by offering clear information and precise directions, ensuring easy access to essential services.
 
 ## Projects 
-### [Battery Management System](/projects/BMS.md)
-Description
-test
-Image
-### [Biomedical Training Device](/projects/TrainingDevice.md)
-Description
-Image
-### [Infant Sepsis Monitor](/projects/SepsisMonitor.md)	 
-Description
-Image
-### [Breast Invasive Carcinoma Research](/projects/BRCAproj)
-Description
-Image
-### [Distal Femur Fracture Fixation Device](/projects/FemurFixationproj.md)
-Description
-Image
+### [Battery Management System](/projects/BMS.md) (_September 2023 – Present_)
+A Battery Management System (BMS) for the UBC Bionics GRASP project to ensure the safety and longevity of both the batteries and electronics. The system protects against common faults, monitors battery charge levels, and assesses overall battery health to optimize performance. 
+#### *Skills applied: Altium, circuit analysis, PCB testing and debugging, SMD and TH soldering*
+
+### [Biomedical Training Device](/projects/TrainingDevice.md) (_January 2024 - April 2024_)
+A projection-based prototype training device for biomedical engineering technologists to simulate preventative maintenance on patient point-of-care units.
+#### *Skills applied: circuit design, Python, OpenCV*
+
+### [Breast Invasive Carcinoma Research](/projects/BRCAproj) (_September 2023 - December 2023_)
+A research project utilizing data from The Cancer Genome Atlas (TCGA) to identify the relationships between genes and biochemical pathways in breast cancer patients.
+#### *Skills applied: R programming, machine learning*
+
+### [Infant Sepsis Monitor](/projects/SepsisMonitor.md) (_January 2023 - April 2023_)
+A wearable device for infants that monitors vital signs, detects early indicators of sepsis, and alerts guardians in real-time.
+#### *Skills applied: circuit design, LTSpice, C++ programming*
+
+### [Distal Femur Fracture Fixation Device](/projects/FemurFixationproj.md) (_September 2022 - December 2022_)
+A proposed fixation device for distal femur fractures in elderly patients, designed to support immediate post-surgery mobility.
+#### *Skills applied: SolidWorks CAD, SolidWorks Simulation (FEA)* 
 
 ## Hobbies
-### Banana Bread
-Banan
+### Cooking
+Love to try new foods
+### Working out at the gym
+Me gym *thumbs up*
+
