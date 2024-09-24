@@ -3,7 +3,7 @@ site.locale: "en-US"
 title: "Nick's Corner"  # The title of your website
 description: "Biomedical Engineering Student | Medical Devices & Bionic Prosthesis Enthusiast"  # A short description of yourself
 url: "https://fettuccinifelix.github.io"  # The URL of your site
-
+logo: /assets/img/Nick Santoso (1).jpg
 
 # Your personal information
 name: "Nicholas"  # Your name
