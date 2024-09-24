@@ -37,7 +37,7 @@ A research project utilizing data from The Cancer Genome Atlas (TCGA) to identif
 A wearable device for infants that monitors vital signs, detects early indicators of sepsis, and alerts guardians in real-time.
 #### *Skills applied: circuit design, LTSpice, C++ programming*
 
-### [Distal Femur Fracture Fixation Device](/projects/FemurFixationproj.md) (_September 2022 - December 2022_)
+### [Femur Fracture Fixation Device](/projects/FemurFixationproj.md) (_September 2022 - December 2022_)
 A proposed fixation device for distal femur fractures in elderly patients, designed to support immediate post-surgery mobility.
 #### *Skills applied: SolidWorks CAD, SolidWorks Simulation (FEA)* 
 
