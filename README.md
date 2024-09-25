@@ -46,8 +46,8 @@ A wearable device for infants that monitors vital signs, detects early indicator
 ### [Femur Fracture Fixation Device](/projects/FemurFixationproj.md) (_September 2022 - December 2022_)
 A proposed fixation device for distal femur fractures in elderly patients, designed to support immediate post-surgery mobility.
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img id="firstImage" src="/assets/img/femur_img/nicola/diag.png" alt="model">
-    <img id="secondImage" src="/assets/img/femur_img/nicola/diag with bone.png" alt="model with bone">
+    <img id="firstImage" src="/assets/img/femur_img/nicola/diag.png" alt="model" style="width: 30%; margin-right: 15%; height: auto; max-height: 300px;">
+    <img id="secondImage" src="/assets/img/femur_img/nicola/diag with bone.png" alt="model with bone" style="width: 30%; height: auto; max-height: 300px;">
 </div>
 
 #### *Skills applied: SolidWorks CAD, SolidWorks Simulation (FEA)* 
