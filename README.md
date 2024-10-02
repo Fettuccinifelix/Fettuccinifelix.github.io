@@ -35,7 +35,7 @@ A projection-based prototype training device for biomedical engineering technolo
 
 #### *Skills applied: circuit design, Python, OpenCV*
 
-### [Breast Invasive Carcinoma Research](/projects/BRCAproj) (_September 2023 - December 2023_)
+### [Breast Invasive Carcinoma Research](/projects/BRCAproj.md) (_September 2023 - December 2023_)
 A research project utilizing data from The Cancer Genome Atlas (TCGA) to identify the relationships between genes and biochemical pathways in breast cancer patients.
 #### *Skills applied: R programming, machine learning*
 
