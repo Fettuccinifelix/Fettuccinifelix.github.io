@@ -1,1 +1,3 @@
+# Overcharge and Overdischarge Protection
 
+Lithium-ion cells typically have a voltage range between 2.5V and 4.2V (depending on the specific chemistry) and operating cells outside of this range can significantly reduce their lifespan and degrade their state of health (SOH). Knowing this, it is crucial that each cell is kept within its appropriate voltage threshold and that charging is consistent across the each cell. Overcharge and overdischarge protection in battery management systems are generally simple to understand, they are systems put in place to maintain voltages within these ranges to maximize their lifespan. 
