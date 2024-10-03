@@ -1,1 +1,8 @@
+#Over/Undertemperature Protection
 
+Temperature monitoring is a critical aspect of maintaining lithium-ion battery safety, as it helps prevent both thermal runaway conditions, which can lead to fires, and undertemperature conditions, which can negatively impact battery performance and lifespan. A thermistor is typically used to measure the temperature of the batteries to avoid overheating or operating in conditions that are too cold. Lithium-ion batteries must be kept within specific temperature ranges for safe operation: between 0˚C and 45˚C (32˚F to 113˚F) for charging, –20˚C to 60˚C (–4˚F to 140˚F) for discharging, and 0˚C to 20˚C (32˚F to 68˚F) for storage. Operating outside these ranges can lead to reduced capacity, efficiency losses, and long-term damage.
+
+For temperature sensing, a thermistor is usually used, which is a type of resistor whose resistance changes relative to temperature. This characteristic makes it highly suitable for monitoring temperature changes in batteries, as it provides a reliable and predictable response to variations in temperature. The voltage of a thermistor is then usually fed to an operational amplifier for high-precision single-supply signal amplification, and converted to a digital signal using an analog-to-digital converter (ADC) before being processed by a microcontroller unit (MCU). Additional safety measures include using thermal fuses to prevent over-temperature conditions, heatsinks to disperse heat effectively, and even a fire extinguisher for emergency situations where overheating leads to a fire risk.
+
+## Current implementation
+Currently an 

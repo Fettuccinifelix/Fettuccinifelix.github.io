@@ -17,7 +17,7 @@ In general, a BMS is fairly self-explainatory in that it is a system used to man
 - [Overcharge protection](/projects/BMSfeatures/overchargeanddischarge.md) -- to prevent the battery from being overcharged which can lead to the afforementioned fire as well as battery degradation
 - [Overdischarge protection](/projects/BMSfeatures/overchargeanddischarge.md) -- to prevent the battery from being discharged below a certain safe level to preserve the battery for prolonged use
 
-### 1.1 Initial design 
+### 1.1 Initial iteration
 With these general features defined, we then moved into generally designing the system itself, defining the input and output data of our BMS, but still keeping the system itself as a black box. The system would take in various inputs, such as pack voltage, temperature readings, and the current flowing into or out of the battery pack. It would monitor both the voltage of each individual battery and the overall pack voltage, while measuring current using a shunt resistor or a Hall effect sensor. If an unsafe or undesirable state was detected, a master disconnect feature would terminate charging to ensure safety. The system could also communicate with an external controller, like a Raspberry Pi, to regulate the load more effectively. Outputs of the system would include the State of Charge (SOC), providing an accurate estimation of the remaining battery charge, and the State of Health (SOH), indicating the current capacity compared to the original and showing the degradation over time. Additionally, the system would report any faults or status conditions to maintain safe operation.
 
 [Image]
