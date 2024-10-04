@@ -30,6 +30,8 @@ Lastly, the modular structure, which employs multiple slave units that gather da
 ## Our choice
 We chose to implement a modular-like structure to address the redundancy requirements typically associated with a centralized system, while also benefiting from its relative simplicity—since not every cell requires its own dedicated board. The current topology consists of two boards: a master and a slave. The [slave board](/projects/BMSfeatures/Slave.md) contains protection circuitry to mitigate the aforementioned faults and sensing hardware to collect battery pack data. This data is then sent to the [master board](/projects/BMSfeatures/Master.md), which is responsible for aggregating and displaying the information.
 
-[our topology]
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/BMS/bms-Page-2.drawio.png" alt="current BMS architecture" style = "width = 90%; height = auto;">
+</div>
 
 sources: https://www.mdpi.com/1996-1073/14/14/4279; https://tritekbattery.com/3-topologies-of-battery-management-system/
