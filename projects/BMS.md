@@ -1,4 +1,8 @@
 # Battery Management System
+## Index
+links for all pages
+
+
 ## Background and Overview
 UBC Bionics is an undergraduate design team focused on developing innovative solutions to enhance or replace human physiological functions. As of this page's creation, the team is working on two major projects: GRASP, a myoelectric prosthetic arm for transradial amputees, and NERV, a brain-computer interface enabling computer interaction for quadriplegics using electroencephalography. Additionally, UBC Bionics plans to participate in Cybathelon's ARM race, which is a timed-trial style race where pilots attempt to carry out various day-to-day tasks using their team's bionic prosthesis, and thus some design decisions are based off of competition requirements. This page outlines the development process of the battery management system (BMS) for the GRASP project. The BMS is designed to protect the battery from charging faults such as overcharging and overdischarging, to optimize battery health, and to safeguard peripheral electronics from over-voltage and over-current conditions, ensuring the reliable operation of GRASP. 
 
@@ -9,7 +13,7 @@ The BMS was my first project with UBC Bionics. During its development, I gained 
 Before moving on, I would like to extend a special thanks to Justin The for being an amazing project partner and doing a lot of research on BMS systems to help catch me up to speed.
 
 
-## 1.0 Project Summary (change title) 
+## 1.0 BMS Summary
 In general, a BMS is fairly self-explainatory in that it is a system used to manage the battery cell(s) of a greater electronic system, and in essence the BMS must be both safe (provide battery protection) and reliable (be able to manage capacity). To better paint a picture of a BMS, it should include: 
 - [Cell balancing](/projects/BMSfeatures/cellbalancing.md) -- to make sure all cells have the same voltage and prevent unwanted overdischarge.
 - [Overcurrent protection](/projects/BMSfeatures/overcurrent.md) -- to protect the battery against excessive charge or discharge currents
@@ -20,21 +24,13 @@ In general, a BMS is fairly self-explainatory in that it is a system used to man
 ### 1.1 Initial iteration
 With these general features defined, we then moved into generally designing the system itself, defining the input and output data of our BMS, but still keeping the system itself as a black box. The system would take in various inputs, such as pack voltage, temperature readings, and the current flowing into or out of the battery pack. It would monitor both the voltage of each individual battery and the overall pack voltage, while measuring current using a shunt resistor or a Hall effect sensor. If an unsafe or undesirable state was detected, a master disconnect feature would terminate charging to ensure safety. The system could also communicate with an external controller, like a Raspberry Pi, to regulate the load more effectively. Outputs of the system would include the State of Charge (SOC), providing an accurate estimation of the remaining battery charge, and the State of Health (SOH), indicating the current capacity compared to the original and showing the degradation over time. Additionally, the system would report any faults or status conditions to maintain safe operation.
 
-[Image]
-
-Version 1 of the Battery Management System (BMS) involves the use of a [Master-Slave topology](/projects/BMSfeatures/BMStopologies.md) to connect the batteries to the rest of the GRASP system. Version 1 of the BMS uses 2 boards, the first of which is the “Master Board” mounted inside the forearm compartment. The Master board contains an STM32 microcontroller to communicate with our Slave board, as well as several buck converters to step down the pack voltage to an acceptable level for each electrical subsystem within GRASP. 
-
-The other board used for this BMS is the “Slave Board”, mounted in a shoulder housing. The main features of the Slave board include over fault protection (ex: overcharge, overdischarge), charge balancing, and fuel gauging (State of Charge (SOC) and State of Health (SOH) tracking). These features are carried out by a BQ7791502 battery protection IC as well as a BQ34110 fuel gauge IC both from Texas Instruments. 
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/BMS/image20.png" alt="rough BMS diagram" style = "width = 90%; height = auto;">
+</div>
 
 
+## 2.0 System Specifications
 
-
-## 2.0 System Architecture 
-
-### 2.1 Requirement summary
-
-
-### 2.2 System Requirements
 <table>
   <tbody>
     <tr>
@@ -118,3 +114,21 @@ Generally, wearable devices should not exceed 10% of the body weight [6] which f
    
   </tbody>
 </table>
+
+## 3.0 Initial iteration
+Version 1 of the Battery Management System (BMS) involves the use of a [Master-Slave topology](/projects/BMSfeatures/BMStopologies.md) to connect the batteries to the rest of the GRASP system. Version 1 of the BMS uses 2 boards, the first of which is the [master board](/projects/BMSfeatures/Master.md) mounted inside the forearm compartment. The master board contains an STM32 microcontroller to communicate with our slave board, as well as several buck converters to step down the pack voltage to an acceptable level for each electrical subsystem within GRASP. My partner Justin worked on this board. 
+
+The other board used for this BMS is the [slave board](/projects/BMSfeatures/Slave.md), mounted in a shoulder housing. The main features of the slave board include over fault protection (ex: overcharge, overdischarge), charge balancing, and fuel gauging (State of Charge (SOC) and State of Health (SOH) tracking). These features are carried out by a BQ7791502 battery protection IC as well as a BQ34110 fuel gauge IC both from Texas Instruments. I (Nick) worked on this board
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/BMS/bms-Page-2.drawio.png" alt="current BMS architecture" style = "width = 90%; height = auto;">
+</div>
+
+[pcitures of first boards]
+
+### 3.1 Lessons learned 
+So with our first iterations of boards, we both ran into our own issues. However as I mainly worked on the slave, I can only speak in terms of the slave board. When testing it out, I realized I made a pretty big mistake in laying out the board. I realized, a little too late, that I had been accidentally shorting the CHG and DSG MOSFETs by placing vias in series before and after the FETs connected to a ground plane, this allowed current to just flow through the ground plane bypassing the MOSFETs regardless of whether or not there was a fault. This was a careless mistake, as I had the GND symbols on the circuits for both ICs referring to the same net. 
+
+To resolve this, I separated the circuits for both ICs into 2 PCBs to essentially make sure that I didn't repeat that mistake, and to test each circuit separately. I also had multiple people review my new boards such that the layout and schematic made sense and were similar enough to their reference. This resulted in the following boards. If I had the time, I would create another iteration where I remerged the 2 circuits into a single board, but I will leave future work to whomever is working on the BMS this year. 
+
+[images of new boards]
