@@ -33,7 +33,7 @@ In general, a BMS is fairly self-explainatory in that it is a system used to man
 With these general features defined, we then moved into generally designing the system itself, defining the input and output data of our BMS, but still keeping the system itself as a black box. The system would take in various inputs, such as pack voltage, temperature readings, and the current flowing into or out of the battery pack. It would monitor both the voltage of each individual battery and the overall pack voltage, while measuring current using a shunt resistor or a Hall effect sensor. If an unsafe or undesirable state was detected, a master disconnect feature would terminate charging to ensure safety. The system could also communicate with an external controller, like a Raspberry Pi, to regulate the load more effectively. Outputs of the system would include the State of Charge (SOC), providing an accurate estimation of the remaining battery charge, and the State of Health (SOH), indicating the current capacity compared to the original and showing the degradation over time. Additionally, the system would report any faults or status conditions to maintain safe operation.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/image20.png" alt="rough BMS diagram" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/image20.png" alt="rough BMS diagram" style = "width: 90%; height: auto;">
 </div>
 
 
@@ -129,11 +129,11 @@ Version 1 of the Battery Management System (BMS) involves the use of a [Master-S
 The other board used for this BMS is the [slave board](/projects/BMSfeatures/Slave.md), mounted in a shoulder housing. The main features of the slave board include over fault protection (ex: overcharge, overdischarge), charge balancing, and fuel gauging (State of Charge (SOC) and State of Health (SOH) tracking). These features are carried out by a BQ7791502 battery protection IC as well as a BQ34110 fuel gauge IC both from Texas Instruments. I worked on this board, and most of this page will be discussing the details around it
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/bms-Page-2.drawio.png" alt="current BMS architecture" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/bms-Page-2.drawio.png" alt="current BMS architecture" style = "width: 90%; height: auto;">
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/IMG_0864.jpg" alt="old board" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/IMG_0864.jpg" alt="old board" style = "width: 90%; height: auto;">
 </div>
 
 ### 3.1 Lessons learned 
@@ -142,7 +142,7 @@ So with our first iterations of boards, we both ran into our own issues. However
 To resolve this, I separated the circuits for both ICs into 2 PCBs to essentially make sure that I didn't repeat that mistake, and to test each circuit separately. I also had multiple people review my new boards such that the layout and schematic made sense and were similar enough to their reference. This resulted in the following boards. If I had the time, I would create another iteration where I remerged the 2 circuits into a single board. Addtionally, I would revamp the slave board such that we could use a programmable IC to change cell voltage thresholds to make the system more usable with different batteries, as well as find an IC which performs protection and fuel gauging to further decrease the BMS in size. However, I will leave future work to whomever is working on the BMS this year.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/IMG_0863.jpg" alt="new boards" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/IMG_0863.jpg" alt="new boards" style = "width: 90%; height: auto;">
 </div>
 (Protection board (right), fuel gauge board (left))
 

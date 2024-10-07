@@ -6,14 +6,14 @@ Cell balancing is a technique which ensures that each battery cell is charged si
 One method for addressing these discrepancies is passive cell balancing, which is both the simplest and most cost-effective approach. In this method, each cell is equipped with a bypass resistor connected to a switch or transistor. When a cell reaches its maximum voltage, a MOSFET is activated, allowing excess charge to be dissipated as heat through the bypass resistor, thereby balancing all cells during charging. However, passive balancing has limitations: it does not consider cells that reach minimum voltage levels faster than others, leading to imbalances during discharge. Additionally, passive balancing is inefficient, as it wastes excess energy as heat rather than redistributing it effectively. 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/PassiveCB.png" alt="Passive cell balancing" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/PassiveCB.png" alt="Passive cell balancing" style = "width: 90%; height: auto;">
 </div>
 
 ## Active Balancing
 Active cell balancing provides an alternative by redistributing excess charge from one cell to another, rather than dissipating it as heat. This method is more efficient because it maintains energy within the battery pack, thus reducing waste. One common implementation of active balancing involves the use of charge shuttles or flying capacitors, which transfer energy between adjacent cells. However, active balancing systems are more complex and expensive compared to passive balancing, and charge transfer is typically limited to adjacent cells, which can make the balancing process slower in some configurations. 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/ActiveCB.png" alt="Active cell balancing" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/ActiveCB.png" alt="Active cell balancing" style = "width: 90%; height: auto;">
 </div>
 
 ## Our Choice

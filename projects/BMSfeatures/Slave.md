@@ -7,11 +7,11 @@ The battery protection feature of this BMS stems from the use of a BQ7791502 pro
 The BQ77915 is a low-power battery management system (BMS) IC designed to provide a comprehensive suite of voltage, current, temperature protections and smart cell balancing for battery packs without the use of a microcontroller. The BQ77915 IC provides pack protection through integrated CHG and DSG low-side NMOS FET drivers. The IC is also capable of providing smart, passive cell balancing through integrated FETs for cell balancing currents up to 50 mA. Specifically, the BQ77915 protects against the following: overvoltage, undervoltage, overcurrent charge, overcurrent discharge, short circuit discharge, and over/under-temperature while charging and discharging.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/protsch.jpg" alt="prot schematic" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/protsch.jpg" alt="prot schematic" style = "width: 90%; height: auto;">
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/protalllayer.JPG" alt="protall" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/protalllayer.JPG" alt="protall" style = "width: 90%; height: auto;">
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -21,7 +21,7 @@ The BQ77915 is a low-power battery management system (BMS) IC designed to provid
 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/prot3d.JPG" alt="prot3d" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/prot3d.JPG" alt="prot3d" style = "width: 90%; height: auto;">
 </div>
 
 
@@ -60,7 +60,7 @@ The BQ77915 is a low-power battery management system (BMS) IC designed to provid
 > The following table is from the BQ77915 datasheet, and summarizes how each fault condition affects the state of the DSG and CHG output signals, as well as the recovery conditions required to resume charging and/or discharging.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/faulttable.png" alt="faulttable" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/faulttable.png" alt="faulttable" style = "width: 90%; height: auto;">
 </div>
 
 ### Cell balancing
@@ -79,10 +79,10 @@ Communication with the device is provided through an I2C interface, supporting r
 (code is still WIP as of 10/05/2024)
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/FGsch2.jpg" alt="fuel gauge schematic" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/FGsch2.jpg" alt="fuel gauge schematic" style = "width: 90%; height: auto;">
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/FGalllayer.JPG" alt="fgall" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/FGalllayer.JPG" alt="fgall" style = "width: 90%; height: auto;">
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -92,7 +92,7 @@ Communication with the device is provided through an I2C interface, supporting r
 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/FG3d.JPG" alt="FG3D" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/FG3d.JPG" alt="FG3D" style = "width: 90%; height: auto;">
 </div>
 
 ## Technical specifications

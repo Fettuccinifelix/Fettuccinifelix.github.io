@@ -9,13 +9,13 @@ In their simplest form, these systems consist of a MOSFET and an integrated circ
 In our current iteration of the BMS, we are using the [BQ77915-02](https://www.ti.com/product/BQ77915?dcmp=dsproject&hqs=#order-quality) IC from Texas Instruments. The voltage thresholds of this IC are hardware-dependent, meaning the cell voltage range cannot be adjusted unless a different version of the BQ77915 is used. The board employs two N-MOSFETs connected to the IC's discharge (DSG) and charge (CHG) pins. If a cell's voltage exceeds or drops below the overcharge or over-discharge thresholds, the IC turns off the corresponding MOSFET, rendering it non-conducting. This effectively stops the device from operating in a way that would push the battery further outside its healthy voltage range, thus helping to preserve the overall health of the battery. Future iterations of the BMS could include a "smart chip" whose voltage thresholds can be adjusted using an external programmer in the case a different battery is used. 
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/BQ77915.png" alt="BQ77915 chip" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/BQ77915.png" alt="BQ77915 chip" style = "width: 90%; height: auto;">
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/BQ77915diagram.gif" alt="BQ77915 diagram" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/BQ77915diagram.gif" alt="BQ77915 diagram" style = "width: 90%; height: auto;">
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="/assets/img/BMS/overdsgandchgcircuit.JPG" alt="ODSG + OCHG diagram" style = "width = 90%; height = auto;">
+    <img src="/assets/img/BMS/overdsgandchgcircuit.JPG" alt="ODSG + OCHG diagram" style = "width: 90%; height: auto;">
 </div>
