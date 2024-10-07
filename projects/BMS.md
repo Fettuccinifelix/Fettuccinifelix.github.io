@@ -8,7 +8,6 @@
 [Overdischarge Protection](/BMSfeatures/overchargeanddischarge.md)
 ### Other pages
 [Slave Board Overview](/BMSfeatures/Slave.md)
-[Master Board Overview](/BMSfeatures/Master.md)
 [BMS topologies](/BMSfeatures/BMStopologies.md)
 
 
@@ -125,9 +124,9 @@ Generally, wearable devices should not exceed 10% of the body weight which falls
 </table>
 
 ## 3.0 Initial iteration
-Version 1 of the Battery Management System (BMS) involves the use of a [Master-Slave topology](/BMSfeatures/BMStopologies.md) to connect the batteries to the rest of the GRASP system. Version 1 of the BMS uses 2 boards, the first of which is the [master board](/BMSfeatures/Master.md) mounted inside the forearm compartment. The master board contains an STM32 microcontroller to communicate with our slave board, as well as several buck converters to step down the pack voltage to an acceptable level for each electrical subsystem within GRASP. My partner Justin worked on this board. 
+Version 1 of the Battery Management System (BMS) involves the use of a [Master-Slave topology](/BMSfeatures/BMStopologies.md) to connect the batteries to the rest of the GRASP system. Version 1 of the BMS uses 2 boards, the first of which is the master board mounted inside the forearm compartment. The master board contains an STM32 microcontroller to communicate with our slave board, as well as several buck converters to step down the pack voltage to an acceptable level for each electrical subsystem within GRASP. My partner Justin worked on this board. 
 
-The other board used for this BMS is the [slave board](/BMSfeatures/Slave.md), mounted in a shoulder housing. The main features of the slave board include over fault protection (ex: overcharge, overdischarge), charge balancing, and fuel gauging (State of Charge (SOC) and State of Health (SOH) tracking). These features are carried out by a BQ7791502 battery protection IC as well as a BQ34110 fuel gauge IC both from Texas Instruments. I (Nick) worked on this board
+The other board used for this BMS is the [slave board](/BMSfeatures/Slave.md), mounted in a shoulder housing. The main features of the slave board include over fault protection (ex: overcharge, overdischarge), charge balancing, and fuel gauging (State of Charge (SOC) and State of Health (SOH) tracking). These features are carried out by a BQ7791502 battery protection IC as well as a BQ34110 fuel gauge IC both from Texas Instruments. I worked on this board, and most of this page will be discussing the details around it
 
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="/assets/img/BMS/bms-Page-2.drawio.png" alt="current BMS architecture" style = "width = 90%; height = auto;">
@@ -140,23 +139,10 @@ The other board used for this BMS is the [slave board](/BMSfeatures/Slave.md), m
 ### 3.1 Lessons learned 
 So with our first iterations of boards, we both ran into our own issues. However as I mainly worked on the slave, I can only speak in terms of the slave board. When testing it out, I realized I made a pretty big mistake in laying out the board. I realized, a little too late, that I had been accidentally shorting the CHG and DSG MOSFETs by placing vias in series before and after the FETs connected to a ground plane, this allowed current to just flow through the ground plane bypassing the MOSFETs regardless of whether or not there was a fault. This was a careless mistake, as I had the GND symbols on the circuits for both ICs referring to the same net. 
 
-To resolve this, I separated the circuits for both ICs into 2 PCBs to essentially make sure that I didn't repeat that mistake, and to test each circuit separately. I also had multiple people review my new boards such that the layout and schematic made sense and were similar enough to their reference. This resulted in the following boards. If I had the time, I would create another iteration where I remerged the 2 circuits into a single board, but I will leave future work to whomever is working on the BMS this year. 
+To resolve this, I separated the circuits for both ICs into 2 PCBs to essentially make sure that I didn't repeat that mistake, and to test each circuit separately. I also had multiple people review my new boards such that the layout and schematic made sense and were similar enough to their reference. This resulted in the following boards. If I had the time, I would create another iteration where I remerged the 2 circuits into a single board. Addtionally, I would revamp the slave board such that we could use a programmable IC to change cell voltage thresholds to make the system more usable with different batteries, as well as find an IC which performs protection and fuel gauging to further decrease the BMS in size. However, I will leave future work to whomever is working on the BMS this year.
 
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="/assets/img/BMS/IMG_0863.jpg" alt="new boards" style = "width = 90%; height = auto;">
 </div>
 (Protection board (right), fuel gauge board (left))
 
-## 4.0 Safety information
-A lot of this is *common sense &trade;*, just generally don't electrocute and/or burn yourself :) 
-
-### 4.1 Electrical Safety
-- **Service Warning:** Before servicing, disconnect all power sources. Use a voltmeter to verify zero voltage before proceeding.
-- **Arc Flash Prevention:** Maintain a safe distance of at least 3 feet from the BMS during operation. Use insulated tools and avoid wearing metal jewelry when working near high-voltage terminals.
-- **Setup Warning:** Ensure batteries are not touching any part of the PCB aside from their intended connector to prevent any short circuiting when assembling the BMS for use.
-### 4.2 Thermal Safety
-- **Operating Temperatures:** The BMS is designed to operate within a temperature range of -10°C to 65°C. Operating far outside this range may cause system failure or reduced efficiency. 
-- **Thermal Runaway Protection:** The BMS is equipped with thermal sensors that will trigger a shutdown if the temperature exceeds 65°C. In case of an over-temperature event, the BMS will automatically disconnect the load until the system has cooled back into operating range. 
-### 4.3 Chemical Safety
-- **Battery Handling:** The batteries used alongside BMS to power GRASP are Li-Po batteries, handle all batteries with care to avoid punctures or ruptures. Use non-conductive materials for storage and transport to prevent short circuits.
-- **Emergency Procedures:** If chemical exposure occurs due to the Li-Po batteries, exercise caution when irrigating the affected area with water as the water may extend the burn by reacting with the lithium, causing an exothermic reaction. Instead, clean the area to the best of your ability and immediately seek medical attention.
