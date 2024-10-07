@@ -1,14 +1,14 @@
 # Battery Management System
 ## Index
 ### BMS Features
-[Cell Balancing](/BMSfeatures/cellbalancing.md)
-[Overcurrent Protection](/BMSfeatures/overcurrent.md)
-[Temperature Sensing](/BMSfeatures/tempmonitor.md)
-[Overcharge Protection](/BMSfeatures/overchargeanddischarge.md)
-[Overdischarge Protection](/BMSfeatures/overchargeanddischarge.md)
-### Other pages
-[Slave Board Overview](/BMSfeatures/Slave.md)
-[BMS topologies](/BMSfeatures/BMStopologies.md)
+[Cell Balancing](/BMSfeatures/cellbalancing.md)  <br />
+[Overcurrent Protection](/BMSfeatures/overcurrent.md)  <br />
+[Temperature Sensing](/BMSfeatures/tempmonitor.md)  <br />
+[Overcharge Protection](/BMSfeatures/overchargeanddischarge.md)  <br />
+[Overdischarge Protection](/BMSfeatures/overchargeanddischarge.md)  <br />
+### Other pages 
+[Slave Board Overview](/BMSfeatures/Slave.md)  <br />
+[BMS topologies](/BMSfeatures/BMStopologies.md)  <br />
 
 
 ## Background and Overview
