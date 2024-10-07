@@ -21,6 +21,8 @@ The current sensing circuit is placed in series with the load, as current remain
 ## Current implementation
 Overcurrent protection is currently being facilitated by the slave board, using a shunt resistor, the BQ77915 has set voltage ratings such that if the voltage across the shunt resistor increases past 70mV (in the case of an overcurrent fault), MOSFETs on the board will cut current flow from the batteries to the rest of the system. SOC and SOH calculations are done by a fuel gauge on the slave board, and communicates via I2C with the STM32 on the master board to be displayed. 
 
-[image of schematic section ]
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/BMS/overcurrentcircuit.JPG" alt="OC circuit" style = "width = 90%; height = auto;">
+</div>
 
 source: https://components101.com/article/comparison-between-shunt-hall-and-ic-based-current-sensing-designs 

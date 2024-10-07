@@ -6,3 +6,7 @@ For temperature sensing, a thermistor is usually used, which is a type of resist
 
 ## Current implementation
 Currently over/under temperature is handled by the slave board, which has a 103AT-2 thermistor mounted to monitor board temperature. The 103AT-2 is an NTC thermistor, meaning that resistance decreases as temperatures get higher. The thermistor is apart of a voltage divider circuit, whose voltage in the middle node is taken in by the BQ77915 to determine what approximately what temperature the environment surrounding the board is. Future iterations of the BMS should include some sort of temperature sensing modality within each battery pack, not just the board. 
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/BMS/TDcircuit.JPG" alt="thermistor circuit" style = "width = 90%; height = auto;">
+</div>

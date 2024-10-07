@@ -16,4 +16,6 @@ In our current iteration of the BMS, we are using the [BQ77915-02](https://www.t
     <img src="/assets/img/BMS/BQ77915diagram.gif" alt="BQ77915 diagram" style = "width = 90%; height = auto;">
 </div>
 
-[image of schematic section]
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/BMS/overdsgandchgcircuit.JPG" alt="ODSG + OCHG diagram" style = "width = 90%; height = auto;">
+</div>
