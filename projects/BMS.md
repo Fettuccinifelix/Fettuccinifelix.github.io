@@ -1,14 +1,14 @@
 # Battery Management System
 ## Index
 ### BMS Features
-[Cell Balancing](/BMSfeatures/cellbalancing.md)  <br />
-[Overcurrent Protection](/BMSfeatures/overcurrent.md)  <br />
-[Temperature Sensing](/BMSfeatures/tempmonitor.md)  <br />
-[Overcharge Protection](/BMSfeatures/overchargeanddischarge.md)  <br />
-[Overdischarge Protection](/BMSfeatures/overchargeanddischarge.md)  <br />
+[Cell Balancing](/projects/BMSfeatures/cellbalancing.md)  <br />
+[Overcurrent Protection](/projects/BMSfeatures/overcurrent.md)  <br />
+[Temperature Sensing](/projects/BMSfeatures/tempmonitor.md)  <br />
+[Overcharge Protection](/projects/BMSfeatures/overchargeanddischarge.md)  <br />
+[Overdischarge Protection](/projects/BMSfeatures/overchargeanddischarge.md)  <br />
 ### Other pages 
-[Slave Board Overview](/BMSfeatures/Slave.md)  <br />
-[BMS topologies](/BMSfeatures/BMStopologies.md)  <br />
+[Slave Board Overview](/projects/BMSfeatures/Slave.md)  <br />
+[BMS topologies](/projects/BMSfeatures/BMStopologies.md)  <br />
 
 
 ## Background and Overview
@@ -23,11 +23,11 @@ Before moving on, I would like to extend a special thanks to Justin The for bein
 
 ## 1.0 BMS Summary
 In general, a BMS is fairly self-explainatory in that it is a system used to manage the battery cell(s) of a greater electronic system, and in essence the BMS must be both safe (provide battery protection) and reliable (be able to manage capacity). To better paint a picture of a BMS, it should include: 
-- [Cell balancing](/BMSfeatures/cellbalancing.md) -- to make sure all cells have the same voltage and prevent unwanted overdischarge.
-- [Overcurrent protection](/BMSfeatures/overcurrent.md) -- to protect the battery against excessive charge or discharge currents
-- [Temperature sensing](/BMSfeatures/tempmonitor.md) -- to monitor the temperature of the board and prevent thermal runaway -> fire
-- [Overcharge protection](/BMSfeatures/overchargeanddischarge.md) -- to prevent the battery from being overcharged which can lead to the afforementioned fire as well as battery degradation
-- [Overdischarge protection](/BMSfeatures/overchargeanddischarge.md) -- to prevent the battery from being discharged below a certain safe level to preserve the battery for prolonged use
+- [Cell balancing](/projects/BMSfeatures/cellbalancing.md) -- to make sure all cells have the same voltage and prevent unwanted overdischarge.
+- [Overcurrent protection](/projects/BMSfeatures/overcurrent.md) -- to protect the battery against excessive charge or discharge currents
+- [Temperature sensing](/projects/BMSfeatures/tempmonitor.md) -- to monitor the temperature of the board and prevent thermal runaway -> fire
+- [Overcharge protection](/projects/BMSfeatures/overchargeanddischarge.md) -- to prevent the battery from being overcharged which can lead to the afforementioned fire as well as battery degradation
+- [Overdischarge protection](/projects/BMSfeatures/overchargeanddischarge.md) -- to prevent the battery from being discharged below a certain safe level to preserve the battery for prolonged use
 
 ### 1.1 Initial iteration
 With these general features defined, we then moved into generally designing the system itself, defining the input and output data of our BMS, but still keeping the system itself as a black box. The system would take in various inputs, such as pack voltage, temperature readings, and the current flowing into or out of the battery pack. It would monitor both the voltage of each individual battery and the overall pack voltage, while measuring current using a shunt resistor or a Hall effect sensor. If an unsafe or undesirable state was detected, a master disconnect feature would terminate charging to ensure safety. The system could also communicate with an external controller, like a Raspberry Pi, to regulate the load more effectively. Outputs of the system would include the State of Charge (SOC), providing an accurate estimation of the remaining battery charge, and the State of Health (SOH), indicating the current capacity compared to the original and showing the degradation over time. Additionally, the system would report any faults or status conditions to maintain safe operation.
@@ -124,9 +124,9 @@ Generally, wearable devices should not exceed 10% of the body weight which falls
 </table>
 
 ## 3.0 Initial iteration
-Version 1 of the Battery Management System (BMS) involves the use of a [Master-Slave topology](/BMSfeatures/BMStopologies.md) to connect the batteries to the rest of the GRASP system. Version 1 of the BMS uses 2 boards, the first of which is the master board mounted inside the forearm compartment. The master board contains an STM32 microcontroller to communicate with our slave board, as well as several buck converters to step down the pack voltage to an acceptable level for each electrical subsystem within GRASP. My partner Justin worked on this board. 
+Version 1 of the Battery Management System (BMS) involves the use of a [Master-Slave topology](/projects/BMSfeatures/BMStopologies.md) to connect the batteries to the rest of the GRASP system. Version 1 of the BMS uses 2 boards, the first of which is the master board mounted inside the forearm compartment. The master board contains an STM32 microcontroller to communicate with our slave board, as well as several buck converters to step down the pack voltage to an acceptable level for each electrical subsystem within GRASP. My partner Justin worked on this board. 
 
-The other board used for this BMS is the [slave board](/BMSfeatures/Slave.md), mounted in a shoulder housing. The main features of the slave board include over fault protection (ex: overcharge, overdischarge), charge balancing, and fuel gauging (State of Charge (SOC) and State of Health (SOH) tracking). These features are carried out by a BQ7791502 battery protection IC as well as a BQ34110 fuel gauge IC both from Texas Instruments. I worked on this board, and most of this page will be discussing the details around it
+The other board used for this BMS is the [slave board](/projects/BMSfeatures/Slave.md), mounted in a shoulder housing. The main features of the slave board include over fault protection (ex: overcharge, overdischarge), charge balancing, and fuel gauging (State of Charge (SOC) and State of Health (SOH) tracking). These features are carried out by a BQ7791502 battery protection IC as well as a BQ34110 fuel gauge IC both from Texas Instruments. I worked on this board, and most of this page will be discussing the details around it
 
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="/assets/img/BMS/bms-Page-2.drawio.png" alt="current BMS architecture" style = "width = 90%; height = auto;">
