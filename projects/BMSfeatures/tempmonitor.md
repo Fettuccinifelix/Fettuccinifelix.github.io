@@ -1,1 +1,12 @@
+# Over/Undertemperature Protection
 
+Temperature monitoring is a critical aspect of maintaining lithium-ion battery safety, as it helps prevent both thermal runaway conditions, which can lead to fires, and undertemperature conditions, which can negatively impact battery performance and lifespan. A thermistor is typically used to measure the temperature of the batteries to avoid overheating or operating in conditions that are too cold. Lithium-ion batteries must be kept within specific temperature ranges for safe operation: between 0˚C and 45˚C (32˚F to 113˚F) for charging, –20˚C to 60˚C (–4˚F to 140˚F) for discharging, and 0˚C to 20˚C (32˚F to 68˚F) for storage. Operating outside these ranges can lead to reduced capacity, efficiency losses, and long-term damage.
+
+For temperature sensing, a thermistor is usually used, which is a type of resistor whose resistance changes relative to temperature. This characteristic makes it highly suitable for monitoring temperature changes in batteries, as it provides a reliable and predictable response to variations in temperature. The voltage of a thermistor is then usually fed to an operational amplifier for high-precision single-supply signal amplification, and converted to a digital signal using an analog-to-digital converter (ADC) before being processed by a microcontroller unit (MCU). Additional safety measures include using thermal fuses to prevent over-temperature conditions, heatsinks to disperse heat effectively, and even a fire extinguisher for emergency situations where overheating leads to a fire risk.
+
+## Current implementation
+Currently over/under temperature is handled by the slave board, which has a 103AT-2 thermistor mounted to monitor board temperature. The 103AT-2 is an NTC thermistor, meaning that resistance decreases as temperatures get higher. The thermistor is apart of a voltage divider circuit, whose voltage in the middle node is taken in by the BQ77915 to determine what approximately what temperature the environment surrounding the board is. Future iterations of the BMS should include some sort of temperature sensing modality within each battery pack, not just the board. 
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="/assets/img/BMS/TDcircuit.JPG" alt="thermistor circuit" style = "width = 90%; height = auto;">
+</div>

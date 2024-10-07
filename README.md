@@ -21,7 +21,7 @@ BASc, Biomedical Engineering | The University of British Columbia (_April 2026_)
 - Provided vital assistance to over **30** visitors every shift by offering clear information and precise directions, ensuring easy access to essential services.
 
 ## Projects 
-### [Battery Management System](/projects/BMS.md) (_September 2023 – Present_)
+### [Battery Management System](/projects/BMS.html) (_September 2023 – Present_)
 A Battery Management System (BMS) for the UBC Bionics GRASP project to ensure the safety and longevity of both the batteries and electronics. The system protects against common faults, monitors battery charge levels, and assesses overall battery health to optimize performance. 
 #### *Skills applied: Altium, circuit analysis, PCB testing and debugging, SMD and TH soldering*
 
@@ -35,7 +35,7 @@ A projection-based prototype training device for biomedical engineering technolo
 
 #### *Skills applied: circuit design, Python, OpenCV*
 
-### [Breast Invasive Carcinoma Research](/projects/BRCAproj) (_September 2023 - December 2023_)
+### [Breast Invasive Carcinoma Research](/projects/BRCAproj.md) (_September 2023 - December 2023_)
 A research project utilizing data from The Cancer Genome Atlas (TCGA) to identify the relationships between genes and biochemical pathways in breast cancer patients.
 #### *Skills applied: R programming, machine learning*
 
