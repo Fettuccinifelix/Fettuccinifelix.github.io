@@ -21,7 +21,7 @@ BASc, Biomedical Engineering | The University of British Columbia (_April 2026_)
 - Provided vital assistance to over **30** visitors every shift by offering clear information and precise directions, ensuring easy access to essential services.
 
 ## Projects 
-### [Battery Management System](/projects/BMS.html) (_September 2023 – Present_)
+### [Battery Management System](/projects/BMS.md) (_September 2023 – Present_)
 A Battery Management System (BMS) for the UBC Bionics GRASP project to ensure the safety and longevity of both the batteries and electronics. The system protects against common faults, monitors battery charge levels, and assesses overall battery health to optimize performance. 
 #### *Skills applied: Altium, circuit analysis, PCB testing and debugging, SMD and TH soldering*
 
