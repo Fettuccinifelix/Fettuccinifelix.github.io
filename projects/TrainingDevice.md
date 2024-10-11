@@ -11,12 +11,42 @@ This page discusses a Biomedical Engineering Technologist training device that w
 
 ## Critical Function Prototype - The Holotrainer
 
+### Development considerations
 When developing our prototype, we had 2 main factors to consider, projection and sensing. We needed a way to project the image and training instructions on our work surface and a way to sense that the user was interacting object projected. The 2 biggest sources of inspiration for our work are laser keyboards that are projected on your desk to be used normally - which was honestly just a novelty item, and those interactive floor projectors that malls will sometimes have for kids that project things like bubbles or fish that would move around if you stepped on them. 
 
 To address our method of projection, we did first come across laser keyboards and wanted to base our design off of that. However, we found a little too late that unless you either 1. have a system of motors to move the laser diode around and outline the image, or 2. pass the beam through a specialized template like in traditional laser keyboards, you would not able to make complex shapes such as an infusion pump that BMETs would be training to use, and this isn't even taking into account the fact that the latter option only gives you a static image, making it unable to display the various training steps or different views of the machine. This led us move away from laser projection and towards an LCD projector based device for our solution proposal, more similar to the afforementioned interactive floor projection. This would enable us to display multiple moving images as needed during the training. 
 
+After figuring out how we wanted to project our images, we move onto considering how our device will sense user input. Traditionally, interactive floor projections detect users using a wide variety of sensors and cameras, such as infrared and pressure sensors, as well as depth cameras - like how a Microsoft Kinect works. However, these solutions were all a combination of either being too expensive to buy, too complicated to develop with our prototyping budget or would just not work with our intended application, so we elected to look into how laser keyboards detect user input. To summarize, laser keyboards use an infrared camera mounted high and pointing down, as well as an infrared line laser mounted low, which projects a plane of infrared light near and parallel to the table's surface. As the user touches the table to interact, their finger will reflect infrared light to the camera, which then informs the program where the user's finger is in the camera feed. This allows the device to differentiate between intentional inputs (touching the surface) versus accidental inputs which could come from hovering their hand above the image.
 
+Now with those details fleshed out - we could now actually start developing!
 
+### Implementation
+To reiterate, as this is a critical function prototype, our developed prototype only encompasses our indentified critical function, which we found to be how the devices sense input. 
+
+#### Hardware 
+The hardware for this project is relatively simple, all we needed was an infrared camera, a line laser, a projector, and a stand to put everything on. All of these things are pretty easy to find online and order, so not much work needs to be done here. 
+
+[add screenshot of budget]
+
+Oh right... our budget. As this is a class project, our budget was a measly 100 CAD. So, what can we do? Well we can do what we do best as engineers and be resourceful as well as make some swaps. Rather than a projector, as we're just trying to demonstrate our device's sensing function, we can swap that our for 2 laser pointers that will project 2 circles on the surface, which can act as "buttons", and rather than an infrared camera, we can instead remove the infrared filter from a cheap webcam. 
+
+#### Software
+The software for this project was written entirely by me in Python. It was honestly a great experience since I had learned some basic Python in the past but never really got a chance to apply it until now. The software revolves almost entirely around the OpenCV library, which contains various computer vision tools that I needed to learn and understand to use effectively.
+
+The code can be summarized as a series of filtering and processing steps that culminate in the program being able to output the coordinates of a user's finger in the camera feed. It opens the camera stream and defines two small rectangular regions on the frame, which serve as reference points for detecting whether the finger is inside them, these points are hardcoded in as the stand which holds the lasers pointers and camera will be fixed in place, so we can get away with it.
+
+The main loop begins by capturing each frame from the camera. It draws the rectangles on the frame for visualization and converts the frame from the BGR color space to HSV (Hue, Saturation, Value). This makes our input frame much more suitable for the value/brightness based filter we will be using as our input is infrared light - which through the camera without an infrared filter looks white. The code then enters a calibration phase, which requires the user to place a finger on each dot on the table (inside the defined rectangles), the code then takes the HSV values from the pixels in the rectangle to define an approximate range the program should be looking for when trying to identify user input. The code then isolates a specific color range in the HSV space—corresponding to the calibration results and creates a simple threshold mask that highlights only the areas matching this color and then converts the result to greyscale, leaving us with a grey image with our regions of interest (fingers touch table) highlighted. 
+
+After this, several image processing techniques are applied, the first of which is a combination of gaussian blurring using a 5x5 kernal to smooth out the finger contours and reduce any noise in the background of the image and otsu's binarization which is another thresholding function to further refine the highlighted frame. 
+> Otsu's method automatically determines the optimal threshold value to separate the foreground from the background in a greyscaled image using an algorithm that was created by much smarter people. This step is important after blurring the image because Gaussian blurring smooths out noise and small variations, but the image may still contain uneven intensities or unclear edges. Otsu’s thresholding is applied on the blurred grayscale image to produce a clean, binary image where the foreground (finger) is clearly separated from the background. In short, the two thresholding operations work in tandem: the first filters by color, while Otsu's thresholding ensures clean, noise-free contours for more accurate detection. 
+
+Following this, I applied morphological operations (opening followed by closing) to clean up any remaining noise in the background and close up any small holes in our foreground contour to ensure that only significant regions remain in the binary image. Once this filtering is complete, the program detects contours within the image and for each detected contour, the code calculates the minimum-area bounding box and computes its centroid using image moments. 
+
+The centroid represents the center of the detected contour, and the program checks if the centroid lies within either of the predefined rectangles. If the centroid is inside one of the rectangles, the program changes the rectangle's color to red, indicating that the finger has entered that area. This dynamic system allows the program to track the finger in real-time, displaying its coordinates and giving visual feedback about its position. 
+
+Currently, the program is set up to walk the user through 2 steps, to touch the red dot and subsequently the green dot, and to respond accordingly if the instruction is followed correctly or not. 
+
+Overall, this project was a hands-on exploration of computer vision techniques using Python and OpenCV. It allowed me to dive deep into image processing, color filtering, and contour detection while creating an interactive system that tracks and responds to user input through a camera feed.
 
 ## <a id="research"></a> Research 
 
