@@ -9,9 +9,12 @@ This leads us to the aim of this project. To address the challenges of BMET trai
 
 This page discusses a Biomedical Engineering Technologist training device that was developed for BMEG 357 (Biomedical Engineering Design II). As the goal of the class is to mainly perform research on the problem at hand to determine the best solution, the final deliverable of this class is a report of our research and a critical function prototype, a barebones proof of concept. I will first be discussing the actual prototype we ended up with as well as my work that went into it, but if you are at any time interested in the research behind our solution [you can click here](#research). 
 
-Without further ado... 
-
 ## Critical Function Prototype - The Holotrainer
+
+When developing our prototype, we had 2 main factors to consider, projection and sensing. We needed a way to project the image and training instructions on our work surface and a way to sense that the user was interacting object projected. The 2 biggest sources of inspiration for our work are laser keyboards that are projected on your desk to be used normally - which was honestly just a novelty item, and those interactive floor projectors that malls will sometimes have for kids that project things like bubbles or fish that would move around if you stepped on them. 
+
+To address our method of projection, we did first come across laser keyboards and wanted to base our design off of that. However, we found a little too late that unless you either 1. have a system of motors to move the laser diode around and outline the image, or 2. pass the beam through a specialized template like in traditional laser keyboards, you would not able to make complex shapes such as an infusion pump that BMETs would be training to use, and this isn't even taking into account the fact that the latter option only gives you a static image, making it unable to display the various training steps or different views of the machine. This led us move away from laser projection and towards an LCD projector based device for our solution proposal, more similar to the afforementioned interactive floor projection. This would enable us to display multiple moving images as needed during the training. 
+
 
 
 
