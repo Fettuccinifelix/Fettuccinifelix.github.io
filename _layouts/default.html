@@ -16,37 +16,41 @@
     display: flex;
     justify-content: space-between;
     max-width: 90vw;
-    padding: 2vw; /* Increase padding to give more breathing room */
+    padding: 2vw;
     margin: 0 auto;
-    flex-wrap: wrap; /* Ensure the content wraps on smaller screens */
-    box-sizing: border-box; /* Include padding in the element's width and height */
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 header {
-    flex-basis: 25%; /* Start with 25% width */
-    flex-grow: 1; /* Allow the header to grow as needed */
-    padding-right: 2vw; /* Add space between header and section */
+    flex-basis: 25%;
+    flex-grow: 1;
+    padding-right: 2vw;
     box-sizing: border-box;
-    min-height: 100px; /* Ensure the header has a minimum height */
-    flex-shrink: 1; /* Allow shrinking */
-    min-width: 250px; /* Prevent header from shrinking too much */
-    overflow: hidden; /* Prevent overflow in case content exceeds size */
+    min-height: 100px;
+    flex-shrink: 1;
+    min-width: 250px;
+    overflow: hidden;
+    clear: both; /* Ensure header and section don't overlap */
+    position: relative; /* Ensure proper stacking */
 }
 
 section {
-    flex-basis: 70%; /* Give the section 70% of the width initially */
-    flex-grow: 2; /* Let it grow twice as much as the header */
-    padding-left: 2vw; /* Padding to avoid touching header */
+    flex-basis: 70%;
+    flex-grow: 2;
+    padding-left: 2vw;
     box-sizing: border-box;
-    min-height: 200px; /* Ensure it doesn’t collapse */
-    flex-shrink: 1; /* Allow shrinking */
-    overflow: hidden; /* Prevent overflow in case content exceeds size */
+    min-height: 200px;
+    flex-shrink: 1;
+    overflow: hidden;
+    position: relative; /* Ensure proper stacking */
+    clear: both; /* Make sure the section starts below the header */
 }
 
 img {
-    max-width: 100%; /* Ensure images resize within their containers */
+    max-width: 100%;
     height: auto;
-    margin-bottom: 2vw; /* Add bottom margin for spacing */
+    margin-bottom: 2vw;
 }
 
 .contact-links img {
@@ -58,17 +62,17 @@ img {
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     .wrapper {
-        flex-direction: column; /* Stack the content vertically */
-        align-items: center; /* Center content */
+        flex-direction: column;
+        align-items: center;
         max-width: 100vw;
         padding: 10px;
     }
 
     header, section {
-        flex-basis: 100%; /* Full width on small screens */
-        padding-left: 0; /* Remove padding for better centering */
-        padding-right: 0; /* Remove right padding */
-        min-height: auto; /* Allow height to adjust */
+        flex-basis: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: auto;
     }
 
     img, .contact-links img {
@@ -94,10 +98,6 @@ img {
         {% if site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
         {% endif %}
-
-        <!-- {% if site.github.is_user_page %}
-        <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
-        {% endif %} --> 
 
         <p class="view">
           <span>
