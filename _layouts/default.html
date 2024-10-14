@@ -29,6 +29,7 @@ header {
     padding-right: 2vw; /* Add space between header and section */
     box-sizing: border-box;
     min-height: 100px; /* Ensure the header has a minimum height */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 section {
@@ -37,7 +38,10 @@ section {
     padding-left: 2vw; /* Padding to avoid touching header */
     box-sizing: border-box;
     min-height: 200px; /* Ensure it doesn’t collapse */
+    flex-shrink: 0; /* Prevent shrinking */
 }
+
+
 
 img {
     max-width: 100%; /* Ensure images resize within their containers */
