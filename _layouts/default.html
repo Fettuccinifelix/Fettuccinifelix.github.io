@@ -14,62 +14,54 @@
     
   <style>
     .wrapper {
-        display: flex;
-        justify-content: space-between; 
-        max-width: 90vw; /* Max width as a percentage of the viewport width */
-        padding: 0.5vw 2vw 2vw 2vw; /* Padding relative to viewport width */
-        margin: 0 auto; /* Center the wrapper */
-        flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
-    }
+    display: flex;
+    justify-content: space-between;
+    max-width: 90vw;
+    padding: 0.5vw 2vw 2vw 2vw;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
 
-    header {
-        max-width: 25vw; /* Width as a percentage of the viewport width */
-        flex: 1; /* Allow the header to shrink/grow with the viewport */
-        box-sizing: border-box; /* Ensure padding/margin doesn’t affect width */
-    }
+  header {
+      flex-basis: 25%; /* Allow the header to take up 25% of the width */
+      flex-grow: 1; /* Allow it to grow proportionally */
+      box-sizing: border-box;
+      padding-right: 2vw; /* Add padding to create some space between header and section */
+  }
 
-    section {
-        max-width: 45vw; /* Width as a percentage of the viewport width */
-        padding-left: 15vw; /* Replace margin with padding to avoid overlap */
-        flex: 2; /* Section will take twice the space as the header */
-        box-sizing: border-box; /* Ensure padding doesn’t affect width */
-    }
+  section {
+      flex-basis: 70%; /* Allow the section to take up 70% of the width */
+      flex-grow: 2; /* Give it more space to grow than the header */
+      box-sizing: border-box;
+      padding-left: 2vw; /* Padding to avoid overlap */
+  }
 
-    img {
-        max-width: 45vw; /* Size relative to the viewport width */
-        height: auto; 
-        margin-bottom: 2vw; /* Spacing relative to viewport width */
-    }
+  img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 2vw;
+  }
 
-    .contact-links img {
-        width: 3vw; 
-        height: 3vw; 
-        margin-right: 1.5vw; 
-    }
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+  .wrapper {
+      flex-direction: column;
+      align-items: center;
+      max-width: 100vw;
+      padding: 10px;
+  }
 
-    footer {
-        text-align: center;
-        margin-top: 2vw; 
-    }
+  header, section {
+      flex-basis: 100%; /* Full width on small screens */
+      max-width: 90vw;
+      padding-left: 0;
+      padding-right: 0; /* Remove paddings for smaller screens */
+  }
 
-    /* Media query for smaller screens */
-    @media (max-width: 768px) {
-        .wrapper {
-            flex-direction: column;
-            align-items: center;
-            max-width: 100vw;
-            padding: 10px; /* Fixed padding for small screens */
-        }
-
-        header, section {
-            max-width: 90vw;
-            padding-left: 0; /* Remove padding for better centering */
-        }
-
-        img, .contact-links img {
-            max-width: 20vw; /* Slightly larger images on small screens */
-        }
-    }
+  img, .contact-links img {
+      max-width: 20vw;
+  }
+}
 </style>
 
 
