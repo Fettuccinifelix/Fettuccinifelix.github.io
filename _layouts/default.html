@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% seo %}
+    {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
-    
   <style>
 .wrapper {
     display: flex;
@@ -26,10 +25,12 @@
 header {
     flex-basis: 25%; /* Start with 25% width */
     flex-grow: 1; /* Allow the header to grow as needed */
-    padding-right: 20vw; /* Add space between header and section */
+    padding-right: 2vw; /* Add space between header and section */
     box-sizing: border-box;
     min-height: 100px; /* Ensure the header has a minimum height */
-    flex-shrink: 0; /* Prevent shrinking */
+    flex-shrink: 1; /* Allow shrinking */
+    min-width: 250px; /* Prevent header from shrinking too much */
+    overflow: hidden; /* Prevent overflow in case content exceeds size */
 }
 
 section {
@@ -38,10 +39,9 @@ section {
     padding-left: 2vw; /* Padding to avoid touching header */
     box-sizing: border-box;
     min-height: 200px; /* Ensure it doesn’t collapse */
-    flex-shrink: 0; /* Prevent shrinking */
+    flex-shrink: 1; /* Allow shrinking */
+    overflow: hidden; /* Prevent overflow in case content exceeds size */
 }
-
-
 
 img {
     max-width: 100%; /* Ensure images resize within their containers */
@@ -79,9 +79,6 @@ img {
 
 </style>
 
-
-
-    
   </head>
   <body>
     <div class="wrapper">
@@ -91,7 +88,6 @@ img {
         {% if site.logo %}
           <img src="{{ site.logo | relative_url }}" alt="Logo" style="width: 210px; height: auto;" />
         {% endif %}
-
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
@@ -103,7 +99,6 @@ img {
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %} --> 
 
-      
         <p class="view">
           <span>
             <a href="https://www.linkedin.com/in/nicholas-c-santoso" target="_blank">
@@ -121,7 +116,6 @@ img {
             </a>
           </span>
         </p>
-        
 
         {% if site.show_downloads %}
         <ul class="downloads">
@@ -135,7 +129,6 @@ img {
           {% if item.path != "index.md" and item.title and item.rank %}
             <li>
               <a href="{{ item.path | replace:'.md','.html' }}">{{ item.title }}</a>
-              <!-- <span> [ {{ item.path }} - {{ item.title }} - {{ item.rank }} ] </span> -->
             </li>
           {% endif %}
         {% endfor %}
