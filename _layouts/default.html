@@ -13,55 +13,66 @@
 
     
   <style>
-    .wrapper {
+.wrapper {
     display: flex;
     justify-content: space-between;
     max-width: 90vw;
-    padding: 0.5vw 2vw 2vw 2vw;
+    padding: 2vw; /* Increase padding to give more breathing room */
     margin: 0 auto;
-    flex-wrap: wrap;
-  }
-
-  header {
-      flex-basis: 25%; /* Allow the header to take up 25% of the width */
-      flex-grow: 1; /* Allow it to grow proportionally */
-      box-sizing: border-box;
-      padding-right: 2vw; /* Add padding to create some space between header and section */
-  }
-
-  section {
-      flex-basis: 70%; /* Allow the section to take up 70% of the width */
-      flex-grow: 2; /* Give it more space to grow than the header */
-      box-sizing: border-box;
-      padding-left: 2vw; /* Padding to avoid overlap */
-  }
-
-  img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 2vw;
-  }
-
-  /* Media query for smaller screens */
-  @media (max-width: 768px) {
-  .wrapper {
-      flex-direction: column;
-      align-items: center;
-      max-width: 100vw;
-      padding: 10px;
-  }
-
-  header, section {
-      flex-basis: 100%; /* Full width on small screens */
-      max-width: 90vw;
-      padding-left: 0;
-      padding-right: 0; /* Remove paddings for smaller screens */
-  }
-
-  img, .contact-links img {
-      max-width: 20vw;
-  }
+    flex-wrap: wrap; /* Ensure the content wraps on smaller screens */
+    box-sizing: border-box; /* Include padding in the element's width and height */
 }
+
+header {
+    flex-basis: 25%; /* Start with 25% width */
+    flex-grow: 1; /* Allow the header to grow as needed */
+    padding-right: 2vw; /* Add space between header and section */
+    box-sizing: border-box;
+    min-height: 100px; /* Ensure the header has a minimum height */
+}
+
+section {
+    flex-basis: 70%; /* Give the section 70% of the width initially */
+    flex-grow: 2; /* Let it grow twice as much as the header */
+    padding-left: 2vw; /* Padding to avoid touching header */
+    box-sizing: border-box;
+    min-height: 200px; /* Ensure it doesn’t collapse */
+}
+
+img {
+    max-width: 100%; /* Ensure images resize within their containers */
+    height: auto;
+    margin-bottom: 2vw; /* Add bottom margin for spacing */
+}
+
+.contact-links img {
+    width: 3vw;
+    height: 3vw;
+    margin-right: 1.5vw;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column; /* Stack the content vertically */
+        align-items: center; /* Center content */
+        max-width: 100vw;
+        padding: 10px;
+    }
+
+    header, section {
+        flex-basis: 100%; /* Full width on small screens */
+        padding-left: 0; /* Remove padding for better centering */
+        padding-right: 0; /* Remove right padding */
+        min-height: auto; /* Allow height to adjust */
+    }
+
+    img, .contact-links img {
+        max-width: 20vw;
+        width: auto;
+    }
+}
+
 </style>
 
 
