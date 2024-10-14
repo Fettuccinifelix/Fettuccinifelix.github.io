@@ -46,11 +46,10 @@ The centroid represents the center of the detected contour, and the program chec
 
 Currently, the program is set up to walk the user through 2 steps, to touch the red dot and subsequently the green dot, and to respond accordingly if the instruction is followed correctly or not. 
 
-Overall, this project was a hands-on exploration of computer vision techniques using Python and OpenCV. It allowed me to dive deep into image processing, color filtering, and contour detection while creating an interactive system that tracks and responds to user input through a camera feed.
+Overall, this project was a hands-on exploration of computer vision techniques using Python and OpenCV. It allowed me to dive deep into image processing, color filtering, and contour detection while creating an interactive system that tracks and responds to user input through a camera feed. 
+
+
 
 ## <a id="research"></a> Research 
 
 
-## Key Features
-- Feature 1
-- Feature 2
