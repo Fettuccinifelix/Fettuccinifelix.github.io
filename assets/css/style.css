@@ -4,6 +4,6 @@
 @import "jekyll-theme-minimal";
 
 header {
-    position: relative !important; /* Override the fixed positioning */
+    position: static !important; /* Override the fixed positioning */
     top: auto !important; /* Ensure it's no longer pinned to the top */
 }
