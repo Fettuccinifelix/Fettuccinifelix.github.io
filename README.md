@@ -6,6 +6,8 @@ To give a bit of info about myself, I am a 4th year Biomedical Engineering Stude
 \
 I hope you enjoy your time browsing and feel free to reach out if you have any questions or would just like to chat! 
 
+[test link](/projects/test.html)
+
 
 ## Education
 BASc, Biomedical Engineering | The University of British Columbia (_April 2026_)
