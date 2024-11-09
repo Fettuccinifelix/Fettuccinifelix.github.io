@@ -45,21 +45,44 @@
         <h2>Background and Overview</h2>
         <p>Lower Mainland Biomedical Engineering (LMBME) faces a growing demand for effective and flexible training of Biomedical Engineering Technologists (BMETs), who are responsible for maintaining over 110,000 medical devices across multiple hospitals. Current training options, such as factory training and in-house sessions, present significant challenges. Factory training is costly and limited in availability, while in-house training faces scheduling difficulties, limited equipment, and space constraints. As BMETs require up-to-date knowledge to maintain hospital devices properly, inadequate training could negatively impact hospital operations, patient care, and potentially increase healthcare costs.</p>
         
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img id="lmbmelogo" img src="/assets/img/train_img/1670539965233.jpeg" alt="logo" style="width: 90%; height: auto; cursor: pointer;"> 
+        </div>
+
+
+
         <p>The economic and operational consequences of insufficient training are substantial. Poorly maintained devices lead to frequent repairs, increased maintenance costs, and reduced hospital efficiency. Compromised patient care due to malfunctioning devices can also result in legal consequences, as per regulations like the Hospital Act of BC. This issue is critical not just for LMBME but also for the broader healthcare system, as malfunctioning devices can disrupt essential services and delay patient diagnostics.</p>
         
         <p>This leads us to the aim of this project. To address the challenges of BMET training, we explored several alternative methods, including augmented reality (AR) simulations and online learning programs, in hopes of finding more cost-effective and flexible solutions. However, each of these methods encountered its own set of issues. For instance, while online options reduce costs and alleviate scheduling constraints, they often lack the hands-on interaction that is crucial for effective BMET training. In contrast, augmented reality faces challenges related to cost, as multiple headsets are required to accommodate several trainees, and the medical devices needed for training are frequently in use at hospitals. Consequently, we propose our solution: a training machine that uses a projector to display an interactive image onto a workbench. This approach combines the interactivity of traditional and augmented reality training while being significantly more cost-effective and accessible for widespread use.</p>
         
-        <p>This page discusses a Biomedical Engineering Technologist training device that was developed for BMEG 357 (Biomedical Engineering Design II). As the goal of the class is to mainly perform research on the problem at hand to determine the best solution, the final deliverable of this class is a report of our research and a critical function prototype, a barebones proof of concept. I will first be discussing the actual prototype we ended up with as well as my work that went into it, but if you are at any time interested in the research behind our solution <a>href = "#research" you can click here. </a></p>
+        <p>This page discusses a Biomedical Engineering Technologist training device that was developed for BMEG 357 (Biomedical Engineering Design II). As the goal of the class is to mainly perform research on the problem at hand to determine the best solution, the final deliverable of this class is a report of our research and a critical function prototype, a barebones proof of concept. I will first be discussing the actual prototype we ended up with as well as my work that went into it, but if you are at any time interested in the research behind our solution, it is at the bottom of this page.</p>
         
         <h2>Critical Function Prototype - The Holotrainer</h2>
         <h3>Development considerations</h3>
 
         <p>When developing our prototype, we had 2 main factors to consider, projection and sensing. We needed a way to project the image and training instructions on our work surface and a way to sense that the user was interacting object projected. The 2 biggest sources of inspiration for our work are laser keyboards that are projected on your desk to be used normally - which was honestly just a novelty item, and those interactive floor projectors that malls will sometimes have for kids that project things like bubbles or fish that would move around if you stepped on them. </p>
 
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img id="laser keyboard" img src="/assets/img/train_img/articles-quizzes-virtual-laser-keyboard-1476086649.jpeg" alt="laser projector" style="width: 90%; height: auto; cursor: pointer;"> 
+        </div>
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img id="floor" img src="/assets/img/train_img/csm_interactive-floor-aquarium_f5268208d6.jpg" alt="floor projector" style="width: 90%; height: auto; cursor: pointer;"> 
+        </div>
+
+
         <p>To address our method of projection, we did first come across laser keyboards and wanted to base our design off of that. However, we found a little too late that unless you either 1. have a system of motors to move the laser diode around and outline the image, or 2. pass the beam through a specialized template like in traditional laser keyboards, you would not able to make complex shapes such as an infusion pump that BMETs would be training to use, and this isn't even taking into account the fact that the latter option only gives you a static image, making it unable to display the various training steps or different views of the machine. This led us move away from laser projection and towards an LCD projector based device for our solution proposal, more similar to the afforementioned interactive floor projection. This would enable us to display multiple moving images as needed during the training. 
         </p>
 
+        
+
         <p>After figuring out how we wanted to project our images, we move onto considering how our device will sense user input. Traditionally, interactive floor projections detect users using a wide variety of sensors and cameras, such as infrared and pressure sensors, as well as depth cameras - like how a Microsoft Kinect works. However, these solutions were all a combination of either being too expensive to buy, too complicated to develop with our prototyping budget or would just not work with our intended application, so we elected to look into how laser keyboards detect user input. To summarize, laser keyboards use an infrared camera mounted high and pointing down, as well as an infrared line laser mounted low, which projects a plane of infrared light near and parallel to the table's surface. As the user touches the table to interact, their finger will reflect infrared light to the camera, which then informs the program where the user's finger is in the camera feed. This allows the device to differentiate between intentional inputs (touching the surface) versus accidental inputs which could come from hovering their hand above the image.</p>
+
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img id="keeb" img src="/assets/img/train_img/laser.jpg" alt="laserkeyboard" style="width: 90%; height: auto; cursor: pointer;"> 
+        </div>
 
         <p>Now with those details fleshed out - we could now actually start developing!
         </p>
