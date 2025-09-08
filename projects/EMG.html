@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio project page for EMG.">
+    <title>EMG Project | Portfolio</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-header">
+            <h1>Embedded work</h1>
+            <p>This page is to chronical the embedded work I've done on the UBC Bionics Design team</p>
+        </section>
+        <section class="project-header">
+            <h1>EMG Collection and Processing Pipeline</h1>
+            <p>EMG Collection and Processing Pipeline</p>
+        </section>
+
+        <section class="project-details">
+            <h2>Project Overview</h2>
+            <p>Previously, we initially planned for the separate python application to be responsible for collecting and processing EMG data, as well as use an ML model to classify the data. 
+                However, that never panned out to a working solution, and we were left with a python application that would only collect the data and perform very basic thresholding to identify "grip" signals. 
+                As a result, I took it upon myself to rework the entire EMG collection and processing pipeline to be fully integrated into the main rust application (GPM), and to actually implement some sort of processing to clean up our data, and additional thresholding logic to make our solution more resilient to sudden jolts in signal strength caused by motion artifacts and other sources of noise. 
+            </p>
+        </section>
+
+        <section class="project-gallery">
+            <h2>Gallery</h2>
+            <p>Include images or screenshots related to the project.</p>
+            <div class="gallery">
+                <img src="../images/emg1.jpg" alt="Screenshot 1">
+                <img src="../images/emg2.jpg" alt="Screenshot 2">
+            </div>
+        </section>
+
+        <section class="project-technologies">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Other relevant technologies</li>
+            </ul>
+        </section>
+        <section class="project-header">
+            <h1>Control module update</h1>
+            <p>An update to our current architecture</p>
+        </section>
+        <section class="project-details">
+            <h2>Project Overview</h2>
+            <p>This was the first project I undertook as a member of the embedded team on UBC Bionics. For context, I had 0 experience in this field before this project, and only hopped on the team since we were short members. 
+                So there were a few roadblocks, the first is that I had zero experience in Rust (which is what the control module is written in), and second is that I had no idea what was happening under the hood on our controller.
+                The goal of this project was to update our current control module architecture to be fully implemented in Rust. The reason for this is that we wanted to further miniaturize our hardware, meaning we would be going from a Raspberry Pi 4 to a Pi Pico. 
+                However, our previous control module was structured in a way that it would involve the use of a separate Python module, which would run an ML model to classify the EMG signals. This was the initial design since we had initially placed the controller and other electronics in a backpack, so size was not a huge concern.
+                However, with the new design, our priority was that we wanted to place all the electronics on the prosthetic itself, so we needed to make sure that everything could run on the Pi Pico. This meant that we needed to get rid of the Python module and have everything run in Rust to reduce headroom.
+            </p>
+
+            <p> Initially this is how the previous architecture was structured. 
+                Overall the program utilizes an event-driven and strategy-based control modality, using a constantly running engine to delegate task to individual managers who would be responsible for controlling different parts of the arm. 
+                Now the way that this would interpret EMG signals is that the main rust module (GPM) would run alongside an additional python module (analytics), which would be responsible for collecting and interpreting EMG signals. 
+                So GPM would "query" the analytics module for the current state of the arm, and the analytics module would respond with the interpreted EMG signal. Which would then be used by GPM to determine what action to take by then delagating a task to the appropriate manager.
+                However, with the new architecture, we wanted to eliminate the need for the analytics module, and have GPM be fully responsible for collecting and interpreting EMG signals.
+                So the new architecture would look something like this.
+                As you can see, the analytics module has been removed, and GPM is now fully responsible for collecting and interpreting EMG signals. 
+            </p>
+        </section>
+
+        <section class="project-gallery"> 
+            <h2>Gallery</h2>
+            <p>Include images or screenshots related to the project.</p>
+            <div class="gallery">
+                <img src="../images/emg1.jpg" alt="Screenshot 1">
+                <img src="../images/emg2.jpg" alt="Screenshot 2">
+            </div>
+        </section>
+
+        <section class="project-technologies">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Other relevant technologies</li>
+            </ul>
+        </section>
+
+        <section class="project-links">
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://github.com/Fettuccinifelix/emg-project" target="_blank">GitHub Repository</a></li>
+                <li><a href="https://fettuccinifelix.github.io/emg-project" target="_blank">Live Demo</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Nicholas Santoso. All rights reserved.</p>
+    </footer>
+</body>
+</html>
