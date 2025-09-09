@@ -1,113 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en-US">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio project page for EMG.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Portfolio project page for EMG Collection and Processing Pipeline.">
+    <meta name="author" content="Nick Santoso">
     <title>EMG Project | Portfolio</title>
-    <link rel="stylesheet" href="../styles/style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/">Nick's Corner</a></h1>
 
-    <main>
-        <section class="project-header">
-            <h1>Embedded work</h1>
-            <p>This page is to chronical the embedded work I've done on the UBC Bionics Design team</p>
-        </section>
-        <section class="project-header">
-            <h1>EMG Collection and Processing Pipeline</h1>
-            <p>EMG Collection and Processing Pipeline</p>
-        </section>
+        <img src="/assets/img/Nick Santoso (1).jpg" alt="Logo" style="width: 210px; height: auto;">
+        <p>Biomedical Engineering Student | Embedded Systems & Prosthetic Control </p>
 
-        <section class="project-details">
-            <h2>Project Overview</h2>
-            <p>Previously, we initially planned for the separate python application to be responsible for collecting and processing EMG data, as well as use an ML model to classify the data. 
-                However, that never panned out to a working solution, and we were left with a python application that would only collect the data and perform very basic thresholding to identify "grip" signals. 
-                As a result, I took it upon myself to rework the entire EMG collection and processing pipeline to be fully integrated into the main rust application (GPM), and to actually implement some sort of processing to clean up our data, and additional thresholding logic to make our solution more resilient to sudden jolts in signal strength caused by motion artifacts and other sources of noise. 
-            </p>
-        </section>
+        <p class="view">
+          <span>
+            <a href="https://www.linkedin.com/in/nicholas-c-santoso" target="_blank">
+              <img src="/assets/img/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 30px; height: 30px; margin-right: 15px;">
+            </a>
+          </span>
+          <span>
+            <a href="https://github.com/Fettuccinifelix" target="_blank">
+              <img src="/assets/img/github-color-svgrepo-com.svg" alt="GitHub" style="width: 30px; height: 30px; margin-right: 15px;">
+            </a>
+          </span>
+          <span>
+            <a href="mailto:santoso6@student.ubc.ca">
+              <img src="/assets/img/gmail-envelope-svgrepo-com.svg" alt="Email" style="width: 30px; height: 30px; margin-right: 15px;">
+            </a>
+          </span>
+        </p>
+      </header>
 
-        <section class="project-gallery">
-            <h2>Gallery</h2>
-            <p>Include images or screenshots related to the project.</p>
-            <div class="gallery">
-                <img src="../images/emg1.jpg" alt="Screenshot 1">
-                <img src="../images/emg2.jpg" alt="Screenshot 2">
-            </div>
-        </section>
+      <section>
+        <h1>Embedded Projects</h1>
+                        <a href="/" style="text-decoration: none; color: #007acc; font-size: 1rem; border: 1px solid #007acc; border-radius: 4px; padding: 4px 12px; background: #f5f5f5; transition: background 0.2s;">
+                    &larr; Back to Home
+                </a>
+        <h2>Background and Overview</h2>
+        <p>As part of the UBC Bionics Design Team, I had the opportunity to contribute to the development of embedded systems for our bionic prosthetic arm. 
+        My focus was on EMG signal collection, processing, and integration into the main control architecture. This work involved reworking the EMG pipeline, transitioning away from a Python-based approach, 
+        and ensuring everything could run efficiently on embedded hardware such as the Raspberry Pi Pico. The following sections outline the objectives, methods, and results of these embedded projects.</p>
 
-        <section class="project-technologies">
-            <h2>Technologies Used</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Other relevant technologies</li>
-            </ul>
-        </section>
-        <section class="project-header">
-            <h1>Control module update</h1>
-            <p>An update to our current architecture</p>
-        </section>
-        <section class="project-details">
-            <h2>Project Overview</h2>
-            <p>This was the first project I undertook as a member of the embedded team on UBC Bionics. For context, I had 0 experience in this field before this project, and only hopped on the team since we were short members. 
-                So there were a few roadblocks, the first is that I had zero experience in Rust (which is what the control module is written in), and second is that I had no idea what was happening under the hood on our controller.
-                The goal of this project was to update our current control module architecture to be fully implemented in Rust. The reason for this is that we wanted to further miniaturize our hardware, meaning we would be going from a Raspberry Pi 4 to a Pi Pico. 
-                However, our previous control module was structured in a way that it would involve the use of a separate Python module, which would run an ML model to classify the EMG signals. This was the initial design since we had initially placed the controller and other electronics in a backpack, so size was not a huge concern.
-                However, with the new design, our priority was that we wanted to place all the electronics on the prosthetic itself, so we needed to make sure that everything could run on the Pi Pico. This meant that we needed to get rid of the Python module and have everything run in Rust to reduce headroom.
-            </p>
+        <h2>1.0 Project Objectives</h2>
+        <p>The primary aims of this work were to:</p>
+        <ul>
+          <li>Rework the EMG collection and processing pipeline into the Rust-based control application.</li>
+          <li>Develop more robust signal cleaning and thresholding to handle noise and artifacts.</li>
+          <li>Redesign the control module architecture to eliminate reliance on Python and run fully on a Rust-based systems.</li>
+        </ul>
 
-            <p> Initially this is how the previous architecture was structured. 
-                Overall the program utilizes an event-driven and strategy-based control modality, using a constantly running engine to delegate task to individual managers who would be responsible for controlling different parts of the arm. 
-                Now the way that this would interpret EMG signals is that the main rust module (GPM) would run alongside an additional python module (analytics), which would be responsible for collecting and interpreting EMG signals. 
-                So GPM would "query" the analytics module for the current state of the arm, and the analytics module would respond with the interpreted EMG signal. Which would then be used by GPM to determine what action to take by then delagating a task to the appropriate manager.
-                However, with the new architecture, we wanted to eliminate the need for the analytics module, and have GPM be fully responsible for collecting and interpreting EMG signals.
-                So the new architecture would look something like this.
-                As you can see, the analytics module has been removed, and GPM is now fully responsible for collecting and interpreting EMG signals. 
-            </p>
-        </section>
+        <h2>2.0 Methodology</h2>
+        <h3>2.1 EMG Collection and Processing Pipeline</h3>
+        <p>Initially, EMG signals were collected and thresholded using a separate Python application. 
+        This approach provided only basic detection of "grip" signals and was highly susceptible to noise. 
+        To improve robustness, I integrated EMG data collection and processing directly into our Rust-based control program (GPM). 
+        This included implementing filtering, thresholding logic, and safeguards against signal artifacts caused by motion or electrode noise.</p>
 
-        <section class="project-gallery"> 
-            <h2>Gallery</h2>
-            <p>Include images or screenshots related to the project.</p>
-            <div class="gallery">
-                <img src="../images/emg1.jpg" alt="Screenshot 1">
-                <img src="../images/emg2.jpg" alt="Screenshot 2">
-            </div>
-        </section>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img src="/assets/img/EMG/emg1.jpg" alt="EMG Signal Example" style="width: 90%; height: auto; cursor: pointer;">
+        </div>
 
-        <section class="project-technologies">
-            <h2>Technologies Used</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Other relevant technologies</li>
-            </ul>
-        </section>
+        <h3>2.2 Control Module Update</h3>
+        <p>The original control architecture used an event-driven Rust engine (GPM) that relied on a Python module to interpret EMG signals. 
+        While effective on a Raspberry Pi 4, this structure was unsuitable for our next design goal which was miniaturization onto a Raspberry Pi Pico embedded board. 
+        To address this, I refactored the architecture so GPM directly collected and processed EMG signals without external dependencies. 
+        This streamlined the system, reduced computational overhead, and made it feasible to embed all electronics within the prosthetic arm.</p>
+        <p></p>
+        <p>For context, initially the team had planned to include an entire computer vision system which would run off of the Python module, as well as some form of machine learning model to analyze EMG data. 
+            However, we found that when trying to run the both the GPM and analytics module on the Pi Pico, the program would lag and the arm's performance would tank, so we made the change to get rid of the analytics module as a whole to reduce overhead and improve performance.</p>
 
-        <section class="project-links">
-            <h2>Links</h2>
-            <ul>
-                <li><a href="https://github.com/Fettuccinifelix/emg-project" target="_blank">GitHub Repository</a></li>
-                <li><a href="https://fettuccinifelix.github.io/emg-project" target="_blank">Live Demo</a></li>
-            </ul>
-        </section>
-    </main>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img id="old-arch-img" src="/assets/img/EMG/System diagram-Pre change GPM.drawio (1).png" alt="Old Architecture Diagram" style="width: 90%; height: auto;">
+        </div>
 
-    <footer>
-        <p>&copy; 2023 Nicholas Santoso. All rights reserved.</p>
-    </footer>
-</body>
+        <p class="center"> Img 2: Old Architecture Diagram</p>
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <img id="old-arch-img" src="/assets/img/EMG/System diagram-Post-change GPM.drawio (1).png" alt="Old Architecture Diagram" style="width: 90%; height: auto;">
+        </div>
+
+        <p class="center"> Img 3: New Architecture Diagram</p>
+
+        <h2>3.0 Results</h2>
+        <ul>
+          <li><em>Improved Signal Processing:</em> Thresholding and filtering reduced false activations caused by noise and motion artifacts.</li>
+          <li><em>Embedded Integration:</em> Eliminating the Python module allowed the system to run fully on the Pi Pico.</li>
+          <li><em>Control Reliability:</em> Event-driven architecture ensured smooth task delegation and improved response times.</li>
+        </ul>
+
+        <h2>4.0 Conclusion</h2>
+        <p>By restructuring the EMG pipeline and control module architecture, the system became more efficient, resilient, and fully embedded. 
+        These improvements advance the UBC Bionics project by enabling a more compact and robust control system for the prosthetic arm.</p>
+
+        <h2>5.0 Links</h2>
+        <ul>
+          <li><a href="https://github.com/BEARUBC/gpm" target="_blank">GitHub Repository</a></li>
+          <!--<li><a href="https://fettuccinifelix.github.io/emg-project" target="_blank">Live Demo</a></li> -->
+        </ul>
+      </section>
+
+      <footer>
+        <p>This project is maintained by Nick Santoso</p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
 </html>
