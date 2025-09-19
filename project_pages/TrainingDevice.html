@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Nick Santoso's personal website showcasing experience and projects.">
+    <meta name="author" content="Nick Santoso">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+    <header class="project-header">
+      <h1>Biomedical Training Device</h1>
+      <p class="subtitle">Biomedical Engineering Design Project (BMEG 357)</p>
+      
+      
+    </header>
+
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/experience.html">Experience & Education</a>
+        <a href="/projects.html" class="active">Projects</a>
+        <a href="/misc.html">Miscellaneous</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <main>
+        <h1>Biomedical Training Device</h1>
+        <h2>Background and Overview</h2>
+        <p>Lower Mainland Biomedical Engineering (LMBME) faces a growing demand for effective and flexible training of Biomedical Engineering Technologists (BMETs), who are responsible for maintaining over 110,000 medical devices across multiple hospitals. Current training options, such as factory training and in-house sessions, present significant challenges. Factory training is costly and limited in availability, while in-house training faces scheduling difficulties, limited equipment, and space constraints. As BMETs require up-to-date knowledge to maintain hospital devices properly, inadequate training could negatively impact hospital operations, patient care, and potentially increase healthcare costs.</p>
+
+        <figure>
+          <img src="/assets/img/train_img/1670539965233.jpeg" alt="logo" class="project-img">
+        </figure>
+
+        <p>The economic and operational consequences of insufficient training are substantial. Poorly maintained devices lead to frequent repairs, increased maintenance costs, and reduced hospital efficiency. Compromised patient care due to malfunctioning devices can also result in legal consequences, as per regulations like the Hospital Act of BC. This issue is critical not just for LMBME but also for the broader healthcare system, as malfunctioning devices can disrupt essential services and delay patient diagnostics.</p>
+        
+        <p>This leads us to the aim of this project. To address the challenges of BMET training, we explored several alternative methods, including augmented reality (AR) simulations and online learning programs, in hopes of finding more cost-effective and flexible solutions. However, each of these methods encountered its own set of issues. For instance, while online options reduce costs and alleviate scheduling constraints, they often lack the hands-on interaction that is crucial for effective BMET training. In contrast, augmented reality faces challenges related to cost, as multiple headsets are required to accommodate several trainees, and the medical devices needed for training are frequently in use at hospitals. Consequently, we propose our solution: a training machine that uses a projector to display an interactive image onto a workbench. This approach combines the interactivity of traditional and augmented reality training while being significantly more cost-effective and accessible for widespread use.</p>
+        
+        <p>This page discusses a Biomedical Engineering Technologist training device that was developed for BMEG 357 (Biomedical Engineering Design II). As the goal of the class is to mainly perform research on the problem at hand to determine the best solution, the final deliverable of this class is a report of our research and a critical function prototype, a barebones proof of concept. I will first be discussing the actual prototype we ended up with as well as my work that went into it, but if you are at any time interested in the research behind our solution, it is at the bottom of this page.</p> 
+        
+        <h2>Critical Function Prototype - The Holotrainer</h2>
+        <h3>Development considerations</h3>
+
+        <p>When developing our prototype, we had 2 main factors to consider, projection and sensing. We needed a way to project the image and training instructions on our work surface and a way to sense that the user was interacting object projected. The 2 biggest sources of inspiration for our work are laser keyboards that are projected on your desk to be used normally - which was honestly just a novelty item, and those interactive floor projectors that malls will sometimes have for kids that project things like bubbles or fish that would move around if you stepped on them. </p>
+
+        <figure>
+          <img src="/assets/img/train_img/articles-quizzes-virtual-laser-keyboard-1476086649.jpeg" alt="laser projector" class="project-img">
+        </figure>
+
+        <figure>
+          <img src="/assets/img/train_img/csm_interactive-floor-aquarium_f5268208d6.jpg" alt="floor projector" class="project-img">
+        </figure>
+
+        <p>To address our method of projection, we did first come across laser keyboards and wanted to base our design off of that. However, we found a little too late that unless you either 1. have a system of motors to move the laser diode around and outline the image, or 2. pass the beam through a specialized template like in traditional laser keyboards, you would not able to make complex shapes such as an infusion pump that BMETs would be training to use, and this isn't even taking into account the fact that the latter option only gives you a static image, making it unable to display the various training steps or different views of the machine. This led us move away from laser projection and towards an LCD projector based device for our solution proposal, more similar to the aforementioned interactive floor projection. This would enable us to display multiple moving images as needed during the training.</p>
+        
+        <p>After figuring out how we wanted to project our images, we move onto considering how our device will sense user input. Traditionally, interactive floor projections detect users using a wide variety of sensors and cameras, such as infrared and pressure sensors, as well as depth cameras - like how a Microsoft Kinect works. However, these solutions were all a combination of either being too expensive to buy, too complicated to develop with our prototyping budget or would just not work with our intended application, so we elected to look into how laser keyboards detect user input. To summarize, laser keyboards use an infrared camera mounted high and pointing down, as well as an infrared line laser mounted low, which projects a plane of infrared light near and parallel to the table's surface. As the user touches the table to interact, their finger will reflect infrared light to the camera, which then informs the program where the user's finger is in the camera feed. This allows the device to differentiate between intentional inputs (touching the surface) versus accidental inputs which could come from hovering their hand above the image.</p>
+
+        <figure>
+          <img src="/assets/img/train_img/laser.jpg" alt="laserkeyboard" class="project-img">
+        </figure>
+
+        <p>Now with those details fleshed out - we could now actually start developing!</p>
+
+        <h3>Implementation</h3>
+        <p>To reiterate, as this is a critical function prototype, our developed prototype only encompasses our identified critical function, which we found to be how the devices sense input. </p>
+
+        <h4>Hardware</h4>
+        <p>The hardware for this project is relatively simple, all we needed was an infrared camera, a line laser, a projector, and a stand to put everything on. All of these things are pretty easy to find online and order, so not much work needs to be done here. </p>
+
+        <p>Slight roadblock though, as this is a class project, our budget was a measly 100 CAD. So, what can we do? Well we can do what we do best as engineers and be resourceful as well as make some swaps. Rather than a projector, as we're just trying to demonstrate our device's sensing function, we can swap that our for 2 laser pointers that will project 2 circles on the surface, which can act as "buttons", and rather than an infrared camera, we can instead remove the infrared filter from a cheap webcam. </p>
+
+        <figure>
+          <img src="/assets/img/train_img/image7.png" alt="hardware" class="project-img">
+        </figure>
+
+        <figure>
+          <img src="/assets/img/train_img/image13.png" alt="hardware assembled" class="project-img">
+        </figure>
+
+        <h4>Software</h4>
+        <p>The software for this project was written entirely by me in Python. It was honestly a great experience since I had learned some basic Python in the past but never really got a chance to apply it until now. The software revolves almost entirely around the OpenCV library, which contains various computer vision tools that I needed to learn and understand to use effectively.</p>
+
+        <p>The code can be summarized as a series of filtering and processing steps that culminate in the program being able to output the coordinates of a user's finger in the camera feed. It opens the camera stream and defines two small rectangular regions on the frame, which serve as reference points for detecting whether the finger is inside them, these points are hardcoded in as the stand which holds the lasers pointers and camera will be fixed in place, so we can get away with it.</p>
+
+        <p>The main loop begins by capturing each frame from the camera. It draws the rectangles on the frame for visualization and converts the frame from the BGR color space to HSV (Hue, Saturation, Value). This makes our input frame much more suitable for the value/brightness based filter we will be using as our input is infrared light - which through the camera without an infrared filter looks white. The code then enters a calibration phase, which requires the user to place a finger on each dot on the table (inside the defined rectangles), the code then takes the HSV values from the pixels in the rectangle to define an approximate range the program should be looking for when trying to identify user input. The code then isolates a specific color range in the HSV space—corresponding to the calibration results and creates a simple threshold mask that highlights only the areas matching this color and then converts the result to greyscale, leaving us with a grey image with our regions of interest (fingers touch table) highlighted.</p>
+
+        <figure>
+          <img src="/assets/img/train_img/image18.png" alt="hardware assembled" class="project-img">
+        </figure>
+
+        <p>After this, several image processing techniques are applied, the first of which is a combination of gaussian blurring using a 5x5 kernal to smooth out the finger contours and reduce any noise in the background of the image and otsu's binarization which is another thresholding function to further refine the highlighted frame.</p>
+
+        <blockquote>Otsu's method automatically determines the optimal threshold value to separate the foreground from the background in a greyscaled image using an algorithm that was created by much smarter people. This step is important after blurring the image because Gaussian blurring smooths out noise and small variations, but the image may still contain uneven intensities or unclear edges. Otsu’s thresholding is applied on the blurred grayscale image to produce a clean, binary image where the foreground (finger) is clearly separated from the background. In short, the two thresholding operations work in tandem: the first filters by color, while Otsu's thresholding ensures clean, noise-free contours for more accurate detection.</blockquote>
+
+        <p>Following this, I applied morphological operations (opening followed by closing) to clean up any remaining noise in the background and close up any small holes in our foreground contour to ensure that only significant regions remain in the binary image. Once this filtering is complete, the program detects contours within the image and for each detected contour, the code calculates the minimum-area bounding box and computes its centroid using image moments.</p>
+
+        <figure>
+          <img src="/assets/img/train_img/image26.png" alt="program" class="project-img">
+        </figure>
+
+        <p>The centroid represents the center of the detected contour, and the program checks if the centroid lies within either of the predefined rectangles. If the centroid is inside one of the rectangles, the program changes the rectangle's color to red, indicating that the finger has entered that area. This dynamic system allows the program to track the finger in real-time, displaying its coordinates and giving visual feedback about its position.</p>
+
+        <p>Currently, the program is set up to walk the user through 2 steps, to touch the red dot and subsequently the green dot, and to respond accordingly if the instruction is followed correctly or not.</p>
+
+        <p>Overall, this project was a hands-on exploration of computer vision techniques using Python and OpenCV. It allowed me to dive deep into image processing, color filtering, and contour detection while creating an interactive system that tracks and responds to user input through a camera feed.</p>
+        
+        <h2 id="research">Research Behind Our Solution</h2>
+
+        <h3>1.0 Needs Assessment</h3>
+        <ul>
+          <li><strong>Medical Problem</strong>: Discusses the demand for BMET training, existing limitations in training options, and the impact of inadequate training on device reliability and patient care.</li>
+          <li><strong>Scope Definition</strong>: LMBME’s needs include training for the BD Alaris infusion system, budget constraints, limited equipment, and scheduling restrictions.</li>
+          <li><strong>Current Solution Limitations</strong>: The one-time, eight-hour training model lacks flexibility and fails to build confidence in BMETs over the long term.</li>
+        </ul>
+
+        <h3>2.0 Alternative Training Models</h3>
+        <p>Explores several training models, each evaluated for strengths and limitations:</p>
+        <ul>
+          <li><strong>Factory Training</strong>: Expensive and inflexible but comprehensive.</li>
+          <li><strong>In-House Training</strong>: More accessible but limited in device availability.</li>
+          <li><strong>Online Simulations and Video Training</strong>: Cost-effective but lack hands-on experience.</li>
+          <li><strong>Blended Learning</strong>: Combines online and in-person training for greater flexibility.</li>
+        </ul>
+
+        <h3>3.0 Stakeholder Analysis</h3>
+        <ul>
+          <li><strong>Technicians</strong>: Require effective training to maintain devices confidently.</li>
+          <li><strong>Hospital Administrators</strong>: Focus on sustainability and cost-efficiency.</li>
+          <li><strong>Patients</strong>: Depend on reliable, well-maintained equipment for quality care.</li>
+          <li><strong>Additional Perspectives</strong>: Insights into BMET, hospital management, and clinician concerns regarding VR/AR training.</li>
+        </ul>
+
+        <h3>4.0 Needs and Specifications</h3>
+        <h3>Needs Summary</h3>
+        <p>Defines target users, markets, and the potential for MR solutions to address the training gaps in healthcare institutions. Key considerations include real-time feedback, cost-effectiveness, and scalable infrastructure.</p>
+
+        <h4>Specifications and Requirements</h4>
+        <p>Details the functional and operational requirements, including:</p>
+        <ul>
+          <li><strong>Interactive Feedback</strong>: Real-time instructional feedback to simulate in-person training.</li>
+          <li><strong>Cost-Effective Implementation</strong>: Aims for lower costs than current training models.</li>
+          <li><strong>User-Friendly Design</strong>: Prioritizes accessibility for BMETs of varying tech proficiencies.</li>
+        </ul>
+
+        <h3>5.0 Concept Development</h3>
+        <ul>
+          <li><strong>Concept Generation</strong>: Eight initial MR training models (e.g., VR headsets, mobile apps, wearable sensors).</li>
+          <li><strong>Concept Screening and Ranking</strong>: Ranked based on plausibility, feasibility, and scalability, leading to the selection of the top concepts.</li>
+        </ul>
+
+        <h3>6.0 Final Design Concept</h3>
+        <ul>
+          <li><strong>Virtual Projected PCU</strong>: The final design concept uses a virtual PCU with sensors and projectors to simulate maintenance procedures. It eliminates the need for physical devices, reducing costs and setup time.</li>
+        </ul>
+
+        <figure>
+          <img src="/assets/img/train_img/FSD (2)-Page-2.jpg" alt="FSD" class="project-img">
+        </figure>
+
+
+        <h3>7.0 Evaluation Criteria and Scoring</h3>
+        <p>Explains how concepts were scored and weighted, with factors such as:</p>
+        <ul>
+          <li><strong>Scheduling Needs</strong>: How self-directed each training method is.</li>
+          <li><strong>Cost</strong>: Comparative analysis of five-year costs.</li>
+          <li><strong>Ease of Setup</strong>: Evaluation of initial setup and maintenance.</li>
+        </ul>
+
+        <a href="/assets/pdfs/TrainingReport.pdf" download>Download our full report</a>
+      </main>
+
+      <footer>
+        <p>This project is maintained by Nick Santoso</p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html>
