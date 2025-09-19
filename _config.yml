@@ -1,8 +1,0 @@
-# Site settings
-site.locale: "en-US"
-title: "Nick's Corner"  # The title of your website
-description: "Biomedical Engineering Student | Medical Devices & Bionic Prosthesis Enthusiast"  # A short description of yourself
-logo: /assets/img/Nick Santoso (1).jpg
-
-# Theme settings (if using a Jekyll theme)
-theme: jekyll-theme-minimal  # The theme you're using (adjust if you're using a specific one)
