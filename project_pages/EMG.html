@@ -52,6 +52,17 @@
         This included implementing filtering, thresholding logic, and safeguards against artifacts caused by motion or electrode noise.
       </p>
 
+      <figure>
+        <img src="/assets/img/EMG/EMG-Initial.drawio.png" alt="Diagram of Old EMG Pipeline" class="project-img">
+        <figcaption>Fig. 1: Diagram of Old EMG Pipeline</figcaption>
+      </figure>
+
+      <figure>
+        <img src="/assets/img/EMG/EMG-Reworked.drawio.png" alt="Diagram of New EMG Pipeline" class="project-img">
+        <figcaption>Fig. 2: Diagram of New EMG Pipeline</figcaption>
+      </figure>
+
+
       <h3>2.2 Control Module Redesign</h3>
       <p>
         The original control architecture used an event-driven Rust engine (GPM) but still relied on a Python module to interpret EMG signals. 
@@ -67,12 +78,12 @@
 
       <figure>
         <img src="/assets/img/EMG/System diagram-Pre change GPM.drawio (1).png" alt="Old Architecture Diagram" class="project-img">
-        <figcaption>Img 2: Old Architecture Diagram</figcaption>
+        <figcaption>Fig. 3: Old Architecture Diagram</figcaption>
       </figure>
 
       <figure>
         <img src="/assets/img/EMG/System diagram-Post-change GPM.drawio (1).png" alt="New Architecture Diagram" class="project-img">
-        <figcaption>Img 3: New Architecture Diagram</figcaption>
+        <figcaption>Fig. 4: New Architecture Diagram</figcaption>
       </figure>
     </section>
 
