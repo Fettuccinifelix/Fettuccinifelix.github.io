@@ -85,3 +85,19 @@ figcaption {
     max-width: 960px;
   }
 }
+.results-table {
+  width: 100%;               /* fill parent container */
+  border-collapse: collapse;
+  border: 2px solid #333;
+}
+
+.results-table th,
+.results-table td {
+  border: 2px solid #333;
+  padding: 10px;
+  text-align: left;
+}
+
+.results-table th {
+  background-color: #f2f2f2;
+}
